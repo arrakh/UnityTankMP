@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4424f46f-e641-024f-d481-828dd65bc1d0}</ProjectGuid>
+    <ProjectGuid>{8fa8d16d-5b44-4821-e863-cf83eb1b5ad0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>UnityEngine.UI</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_10;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_LINUX;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;UNITY_POST_PROCESSING_STACK_V2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_10;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_LINUX;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;UNITY_POST_PROCESSING_STACK_V2;PACKAGE_PHYSICS;PACKAGE_PHYSICS2D;PACKAGE_TILEMAP;PACKAGE_ANIMATION;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -36,16 +36,92 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Tank\TankHealth.cs" />
-     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
-     <Compile Include="Assets\Scripts\Tank\TankMovement.cs" />
-     <Compile Include="Assets\Scripts\Shell\ShellExplosion.cs" />
-     <Compile Include="Assets\Scripts\Managers\TankManager.cs" />
-     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Tank\TankShooting.cs" />
-     <Compile Include="Assets\Scripts\UI\UIDirectionControl.cs" />
-     <None Include="Assets\Fonts\Bowlby_One\FontLicense.txt" />
-     <None Include="Assets\Tanks!_Third-PartyNotice.txt" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\CanvasScaler.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMaskable.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\VertexHelper.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SetPropertyUtility.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\MoveDirection.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontUpdateTracker.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInputModule.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Text.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Scrollbar.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\ExecuteEvents.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\PositionAsUV1.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\TouchInputModule.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Image.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\GridLayoutGroup.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\ObjectPool.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\ContentSizeFitter.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ColorBlock.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutElement.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\PhysicsRaycaster.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\RaycasterManager.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventTriggerType.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\AspectRatioFitter.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RectMask2D.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutUtility.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaterialModifiers\IMaterialModifier.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\AxisEventData.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\IMeshModifier.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\ILayoutElement.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Mask.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\BaseRaycaster.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Shadow.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\FontData.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Graphic.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\CanvasUpdateRegistry.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventSystem.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\AnimationTriggers.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\PointerInputModule.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\BaseEventData.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Selectable.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskableGraphic.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\ClipperRegistry.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaskUtilities.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ScrollRect.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\StencilMaterial.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Button.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutRebuilder.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\RawImage.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpriteState.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Animation\CoroutineTween.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\VerticalLayoutGroup.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\ListPool.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Navigation.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\BaseMeshEffect.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\InputField.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\HorizontalLayoutGroup.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\Raycasters\Physics2DRaycaster.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutGroup.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\Clipping.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MultipleDisplayUtilities.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRegistry.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Utility\ReflectionMethodsCache.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRaycaster.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\UIBehaviour.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\IClipRegion.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\Properties\AssemblyInfo.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Misc.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventData\PointerEventData.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\RaycastResult.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IMask.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\GraphicRebuildTracker.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventInterfaces.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\IGraphicEnabledDisabled.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\BaseInput.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\VertexModifiers\Outline.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventTrigger.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\DefaultControls.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\RectangularVertexClipper.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Dropdown.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventHandle.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\InputModules\StandaloneInputModule.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Toggle.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SpecializedCollections\IndexedSet.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Slider.cs" />
+     <Compile Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\ToggleGroup.cs" />
+     <None Include="\home\uray\Unity\Hub\Editor\2020.1.10f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UnityEngine.UI.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -228,6 +304,15 @@
     </Reference>
     <Reference Include="UnityEditor">
         <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+        <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+        <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.LinuxStandalone.Extensions">
+        <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -574,28 +659,6 @@
     <Reference Include="mscorlib">
         <HintPath>/home/uray/Unity/Hub/Editor/2020.1.10f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Unity.VSCode.Editor.csproj">
-      <Project>{b575dec7-85a4-8975-ddb0-6779b6a0f67f}</Project>
-      <Name>Unity.VSCode.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{8fa8d16d-5b44-4821-e863-cf83eb1b5ad0}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{75964fee-c22b-addb-2e1c-5f4bbc152ba7}</Project>
-      <Name>Unity.Postprocessing.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
-      <Project>{dbedb81f-58f8-e7b5-3452-75eaf39837a6}</Project>
-      <Name>Unity.Postprocessing.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{d0ae35ee-4afb-efb4-d773-2f83dc75fc18}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
