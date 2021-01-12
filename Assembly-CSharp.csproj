@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_2_1;UNITY_2020_2;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;UNITY_POST_PROCESSING_STACK_V2;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_2_1;UNITY_2020_2;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;USE_SEARCH_ENGINE_API;SCENE_TEMPLATE_MODULE;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_OSX;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_GAMECENTER;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;UNITY_POST_PROCESSING_STACK_V2;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;DEVELOPMENT_BUILD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -56,34 +56,24 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/UI/UIDirectionControl.cs" />
-    <Compile Include="Assets/Scripts/Managers/GameManager.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankDriveController.cs" />
-    <Compile Include="Assets/Scripts/UI/UIScreenPos.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/ShellController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/CameraController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankGunController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankKinematicController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankSfxController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/ExplosionController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankVfxController.cs" />
     <Compile Include="Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs" />
-    <Compile Include="Assets/Photon/Simple/Utilities/Networking/AutoLayerByAuthority.cs" />
     <Compile Include="Assets/Photon/Simple/Components/EnableOnNetObjReady.cs" />
+    <Compile Include="Assets/Photon/Simple/Utilities/Networking/AutoLayerByAuthority.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Assistants/LauncherAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncAnimator/Structs/AnimPassThru.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Assistants/UtilityAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/EditorUtils.cs" />
+    <Compile Include="Assets/Scripts/UI/UIDirectionControl.cs" />
     <Compile Include="Assets/Photon/Simple/Components/AutoOwnerGameObjEnable.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncInventory/Assistants/InventorySystemAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/GhostCollider.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/EditorTools/DisableFieldAttribute.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/ContactTrigger.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Mount/MountsManager.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/TransformCrusher.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/ContactTrigger.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/FloatCrushDrawer.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/IgnoreUiRaycastWhenInactive.cs" />
+    <Compile Include="Assets/Scripts/Controllers/TankDriveController.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/Interfaces/IOnStateChange.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/SimpleDocsURLS.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/SyncShootBase.cs" />
@@ -91,10 +81,10 @@
     <Compile Include="Assets/Photon/Simple/Components/Assistants/MountAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/VitalsSystem/DataTypes/VitalNameType.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncInventory/BasicInventory.cs" />
-    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/HauntedStatic.cs" />
+    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Interfaces/IIncludeInGhost.cs" />
     <Compile Include="Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncInventory/Interfaces/IInventorySystem.cs" />
-    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Interfaces/IIncludeInGhost.cs" />
+    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/HauntedStatic.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Mount/MountSelector.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/VitalsSystem/Interfaces/IOnVitalChange.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/MarkerNameType.cs" />
@@ -111,12 +101,15 @@
     <Compile Include="Assets/Photon/Simple/Components/Mount/MountSettings.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Mount/MountThrow.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/GhostWorld.cs" />
-    <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/WorldBounds/WorldBounds.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/NetworkHits.cs" />
+    <Compile Include="Assets/Scripts/UI/UIScreenPos.cs" />
+    <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/WorldBounds/WorldBounds.cs" />
+    <Compile Include="Assets/Scripts/Controllers/TankController.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/QuatCrusher.cs" />
-    <Compile Include="Assets/Photon/Simple/Core/NetMaster/DoubleTime.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/UI/VitalUIBase.cs" />
+    <Compile Include="Assets/Photon/Simple/Core/NetMaster/DoubleTime.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/Interfaces/IConsumable.cs" />
+    <Compile Include="Assets/Scripts/Launcher.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncOculus/SimpleOVRGrabbable.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/EditorTools/SolidTextures.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/Element.cs" />
@@ -134,6 +127,7 @@
     <Compile Include="Assets/Photon/Simple/Core/TickManager/ConnectionTickOffsets.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/OnStateChangeKinematic.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncOculus/SimpleOVRInputSync.cs" />
+    <Compile Include="Assets/Scripts/Controllers/TankGunController.cs" />
     <Compile Include="Assets/Photon/Simple/Core/Interfaces/SyncObjInterfaces.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/Interfaces/IOnTeleport.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/Matrix.cs" />
@@ -142,10 +136,10 @@
     <Compile Include="Assets/Photon/Simple/Core/NetMaster/NetMaster.cs" />
     <Compile Include="Assets/Photon/Simple/Core/TickManager/TickManager.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Assistants/NetObjectAssists.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/ContactProjectile.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/Enums/ObjState.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/Interfaces/IVitalsSystem.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/ContactProjectile.cs" />
     <Compile Include="Assets/Photon/Simple/Example/Scripts/SuperBasicController.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/Interfaces/IVitalsSystem.cs" />
     <Compile Include="Assets/Photon/Simple/Core/Extensions/NetObjColliderExt.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Interfaces/PackFieldInterfaces.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/Compression/NormCompress/NormCompress.cs" />
@@ -159,17 +153,17 @@
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/CustomMaskEditors/MaskLogic.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/CompressedMatrixRB.cs" />
     <Compile Include="Assets/Photon/Simple/Core/Utilities/GetNestedComponentUtils.cs" />
-    <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/IncludedAxisEnum.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/Interfaces/IMountable.cs" />
+    <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/IncludedAxisEnum.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/EnumMaskAttribute.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/NetworkHit.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/Interfaces/IProjectile.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/EditorTools/InspectorUtils.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncOculus/SimpleOVRDebug.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/_GeneratedPackExtensions/Pack_TestPackObject.cs" />
     <Compile Include="Assets/Photon/Simple/Components/AutoOwnerComponentEnable.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/CompressedMatrix.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/FriendItem.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/Interfaces/IProjectile.cs" />
     <Compile Include="Assets/Photon/Simple/Core/GenericHitscan/HitscanDefinition.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/RigidbodyCrusher.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Enums/PackObjectEnums.cs" />
@@ -177,31 +171,32 @@
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/WorldBounds/WorldBoundsSelectAttribute.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/NetAdapters/NetMsgCallbacks.cs" />
     <Compile Include="Assets/Photon/Simple/Core/Structs/FrameBase.cs" />
-    <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/SyncState.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/UI/VitalUI.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/Assistants/AnimatorAssists.cs" />
-    <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/AppSettingsExtensions.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/Assistants/SyncTransformAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Debugging/UIConsole.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/Assistants/AnimatorAssists.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/Assistants/SyncTransformAssists.cs" />
+    <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChatAppIdCheckerUI.cs" />
+    <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/AppSettingsExtensions.cs" />
     <Compile Include="Assets/Photon/Simple/Core/SyncObjectTFrame.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/AutoDestroyWrongNetLib.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/SyncAnimator/Classes/ParameterSettings.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/StateSyncHelpers.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/SyncAnimator/Classes/ParameterSettings.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/InspectorWidgets.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/OnStateChangeToggle.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/RigidbodyCrusherDrawer.cs" />
+    <Compile Include="Assets/Scripts/Controllers/TankVfxController.cs" />
     <Compile Include="Assets/Photon/Simple/Example/Scripts/TestPackObject.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/SmartVars/SmartVars.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Attributes/SyncRangedAttribute.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/Animator/AnimatorControllerTools.cs" />
     <Compile Include="Assets/Photon/Simple/Example/Scripts/OwnerGUI.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Attributes/SyncIntAttribute.cs" />
-    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Ghost.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/Compression/LiteCrusher/LiteFloatCrusher.cs" />
-    <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Attributes/SyncListAttribute.cs" />
+    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Ghost.cs" />
     <Compile Include="Assets/Photon/Simple/Core/TickEngineSettings.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/MountSwitcher.cs" />
+    <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Attributes/SyncListAttribute.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/SyncOwner.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/CodeGen/Helpers/TypeHelpers.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/NamePickGui.cs" />
@@ -217,6 +212,7 @@
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncInventory/Interfaces/IInventoryable.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/Interfaces/IContactTrigger.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/ContactGroups/ContactGroupSettings.cs" />
+    <Compile Include="Assets/Scripts/Managers/GameManager.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/NameTypeDrawer.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/ContactGroups/ContactGroupSelector.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/Projectile.cs" />
@@ -232,21 +228,23 @@
     <Compile Include="Assets/Photon/PhotonUtilities/FastBitMask/FastBitMask64.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/AutoMountHitscan.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/Enums/ConsumptionEnums.cs" />
-    <Compile Include="Assets/Photon/Simple/Utilities/ContactGroups/Interfaces/IContactGroupMask.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Component/CopyComponent.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Example/BasicController.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/Interfaces/NetworkHitInerfaces.cs" />
+    <Compile Include="Assets/Photon/Simple/Utilities/ContactGroups/Interfaces/IContactGroupMask.cs" />
     <Compile Include="Assets/Photon/Simple/Example/Scripts/TakeOwnership.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/DataMonitor/SimpleDataMonitor.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/SyncVitals.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/VitalsSystem/Vitals.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/DataMonitor/SimpleDataMonitor.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncAnimator/SyncAnimator.cs" />
+    <Compile Include="Assets/Scripts/Controllers/ShellController.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/ContactGroups/ContactGroupAssign.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/MatrixRB.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncMover/SyncAdditiveMover.cs" />
+    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Interfaces/IHauntedComponent.cs" />
+    <Compile Include="Assets/Scripts/Controllers/CameraController.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/SyncContactScan.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Assistants/AssistHelpers.cs" />
-    <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Interfaces/IHauntedComponent.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Structs/CompressedElement.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/ContactGroups/ContactGroupValues.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/FastBitMask/FastBitMask128.cs" />
@@ -262,8 +260,8 @@
     <Compile Include="Assets/Photon/Simple/Components/SyncMover/SyncMoverBase.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncInventory/InventoryContactReactors.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Haunted.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/Interfaces/IVitalsContactReactor.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncMover/SyncNodeMover.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/Interfaces/IVitalsContactReactor.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/ValueTypeAttribute.cs" />
     <Compile Include="Assets/Photon/Simple/Example/Scripts/SimulateHealth.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/WorldBounds/WorldBoundsSettings.cs" />
@@ -273,35 +271,38 @@
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/ContactManager.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Collider/CollideType.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GhostWorld/Enums/Realm.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/Assistants/PickupAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncOculus/SimpleOculusAutomation.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/Assistants/PickupAssists.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/AutoDestroyUnspawned.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/Interfaces/IOnContactEvent.cs" />
     <Compile Include="Assets/Photon/Simple/Core/NetObject.cs" />
     <Compile Include="Assets/Photon/Simple/Core/NetMaster/Interfaces/NetMasterInterfaces.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncInventory/InventoryT.cs" />
+    <Compile Include="Assets/Scripts/Controllers/TankKinematicController.cs" />
     <Compile Include="Assets/Photon/Simple/Core/GenericHitscan/HitscanComponent.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Mount/Mount.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/EditorTools/VersaMaskAttribute.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/DemoChat/ChannelSelector.cs" />
-    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/VitalsSystem/DataTypes/VitalData.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/TransformCrusher/Extensions/FloatCrusherExtensions.cs" />
+    <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncVitals/VitalsSystem/DataTypes/VitalData.cs" />
     <Compile Include="Assets/Photon/PhotonChat/Demos/Common/OnStartDelete.cs" />
     <Compile Include="Assets/Photon/Simple/Core/NetMaster/NetMasterCallbacks.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncOculus/AutoDisableOculusObjects.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/ProjectileHelpers.cs" />
+    <Compile Include="Assets/Scripts/Controllers/TankSfxController.cs" />
+    <Compile Include="Assets/Scripts/Controllers/ExplosionController.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/BitUtilities/BitUtilities.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/Compression/LiteCrusher/LiteIntCrusher.cs" />
+    <Compile Include="Assets/Photon/PhotonUtilities/SettingsScriptableObject/SettingsScriptableObject.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/Networking/GenericSpawnPoint.cs" />
     <Compile Include="Assets/Photon/Simple/Example/Scripts/LowFrameRate.cs" />
-    <Compile Include="Assets/Photon/PhotonUtilities/SettingsScriptableObject/SettingsScriptableObject.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/EditorTools/DrawerUtils.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/ContactReactorBase.cs" />
     <Compile Include="Assets/Photon/Simple/Components/ContactSystems/SyncShoot/SyncCannon.cs" />
     <Compile Include="Assets/Photon/Simple/Utilities/GUITools/HideNextXAttribute.cs" />
-    <Compile Include="Assets/Photon/Simple/Core/Interfaces/NetObjInterfaces.cs" />
     <Compile Include="Assets/Photon/Simple/Core/SyncObject.cs" />
     <Compile Include="Assets/Photon/Simple/Components/Assistants/TriggerAssists.cs" />
+    <Compile Include="Assets/Photon/Simple/Core/Interfaces/NetObjInterfaces.cs" />
     <Compile Include="Assets/Photon/PhotonUtilities/PackObject/Attributes/PackObjectAttribute.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncOculus/Assistants/OculusAssist.cs" />
     <Compile Include="Assets/Photon/Simple/Components/SyncState/SyncSpawnTimer.cs" />
@@ -552,23 +553,23 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="HalFloat">
-      <HintPath>Assets/Photon/PhotonUtilities/TransformCrusher/plugins/HalFloat.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+    <Reference Include="ByteConverter">
+      <HintPath>Assets/Photon/PhotonUtilities/Compression/plugins/ByteConverter.dll</HintPath>
     </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
     </Reference>
-    <Reference Include="ByteConverter">
-      <HintPath>Assets/Photon/PhotonUtilities/Compression/plugins/ByteConverter.dll</HintPath>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="FloatCrusher">
       <HintPath>Assets/Photon/PhotonUtilities/TransformCrusher/plugins/FloatCrusher.dll</HintPath>
     </Reference>
     <Reference Include="QuatCompress">
       <HintPath>Assets/Photon/PhotonUtilities/TransformCrusher/plugins/QuatCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="HalFloat">
+      <HintPath>Assets/Photon/PhotonUtilities/TransformCrusher/plugins/HalFloat.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2020.2.1f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -938,9 +939,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
-      <Project>{E61CD5BB-B3DE-38D5-2199-E49A10AD11A1}</Project>
-      <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
+    <ProjectReference Include="PhotonUnityNetworking.csproj">
+      <Project>{DB1F6056-1356-E48C-90A8-54BDB4114B40}</Project>
+      <Name>PhotonUnityNetworking</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonChat.csproj">
+      <Project>{FA78C0FC-8C1B-CDB6-945F-121DE03B42E6}</Project>
+      <Name>PhotonChat</Name>
     </ProjectReference>
     <ProjectReference Include="BitpackersASMDEF.csproj">
       <Project>{4B107AC7-06E6-2167-89B0-93C92A98CD97}</Project>
@@ -950,9 +955,33 @@
       <Project>{D28DDCAB-4E57-AD30-8BB4-172026C3BAD1}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
-    <ProjectReference Include="PhotonChat.csproj">
-      <Project>{FA78C0FC-8C1B-CDB6-945F-121DE03B42E6}</Project>
-      <Name>PhotonChat</Name>
+    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
+      <Project>{75DAA265-6BB7-40BB-5096-616171A045F8}</Project>
+      <Name>PhotonUnityNetworking.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
+      <Project>{E61CD5BB-B3DE-38D5-2199-E49A10AD11A1}</Project>
+      <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="HalfFloatASMDEF.csproj">
+      <Project>{ACBE8ECA-623B-5E46-FE02-F061B296A140}</Project>
+      <Name>HalfFloatASMDEF</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonRealtime.csproj">
+      <Project>{1C6728BD-AA41-14DE-1450-32307B3DA8A9}</Project>
+      <Name>PhotonRealtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
+      <Project>{B6BA122B-68C0-27D9-8AC5-42E52751594B}</Project>
+      <Name>PunDemos.DemoHubEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
+      <Project>{AD3DD2D0-F45A-4A11-5A12-129566186CC9}</Project>
+      <Name>PhotonUnityNetworking.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="EmoCompressUtilsASMDEF.csproj">
+      <Project>{EFE9C36F-745A-4CA8-8DA2-2CC892ACAEA5}</Project>
+      <Name>EmoCompressUtilsASMDEF</Name>
     </ProjectReference>
     <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
       <Project>{25D71DD0-C226-19F7-52C3-0221D8312523}</Project>
@@ -961,34 +990,6 @@
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{8ADA909E-0F12-B921-6947-25E57D5AD60D}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{AD3DD2D0-F45A-4A11-5A12-129566186CC9}</Project>
-      <Name>PhotonUnityNetworking.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{B6BA122B-68C0-27D9-8AC5-42E52751594B}</Project>
-      <Name>PunDemos.DemoHubEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="EmoCompressUtilsASMDEF.csproj">
-      <Project>{EFE9C36F-745A-4CA8-8DA2-2CC892ACAEA5}</Project>
-      <Name>EmoCompressUtilsASMDEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{1C6728BD-AA41-14DE-1450-32307B3DA8A9}</Project>
-      <Name>PhotonRealtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{DB1F6056-1356-E48C-90A8-54BDB4114B40}</Project>
-      <Name>PhotonUnityNetworking</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{75DAA265-6BB7-40BB-5096-616171A045F8}</Project>
-      <Name>PhotonUnityNetworking.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="HalfFloatASMDEF.csproj">
-      <Project>{ACBE8ECA-623B-5E46-FE02-F061B296A140}</Project>
-      <Name>HalfFloatASMDEF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

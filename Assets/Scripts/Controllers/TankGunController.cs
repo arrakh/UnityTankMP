@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Realtime;
+using Photon.Pun;
 
 namespace UnityTank
 {
@@ -10,11 +12,11 @@ namespace UnityTank
         public bool aimingFire;
         public bool fireTrigger;
         public bool enable = true;
-        public void init(GamePlayerState playerState)
+        public void init(PlayerGameState playerState)
         {
             playerState.config.inputActionFire.performed += (InputAction.CallbackContext context) =>
             {
-                if(this.enable)
+                if (this.enable)
                 {
                     this.aimingFire = true;
                     this.fireTrigger = false;
@@ -66,19 +68,19 @@ namespace UnityTank
         private void setState(GunState state)
         {
             this.gunState = state;
-            if(state == GunState.Ready)
+            if (state == GunState.Ready)
             {
-                if(this.stateReady != null) this.stateReady();
+                if (this.stateReady != null) this.stateReady();
             }
-            else if(state == GunState.Trigger)
+            else if (state == GunState.Trigger)
             {
                 if (this.stateTrigger != null) this.stateTrigger();
             }
-            else if(state == GunState.Cooldown)
+            else if (state == GunState.Cooldown)
             {
                 if (this.stateCooldown != null) this.stateCooldown();
             }
-            else if(state == GunState.Loading)
+            else if (state == GunState.Loading)
             {
                 if (this.stateLoading != null) this.stateLoading();
             }
@@ -91,15 +93,24 @@ namespace UnityTank
 
         public GameObject shot()
         {
-            this.lastShotTime = Time.time;            
-            GameObject.Instantiate (this.shootExplosionPrefab, this.aimTransform.position, this.aimTransform.rotation);
+            this.lastShotTime = Time.time;
+            PhotonNetwork.Instantiate(
+                this.shootExplosionPrefab.name,
+                this.aimTransform.position,
+                this.aimTransform.rotation
+            );
 
-            GameObject shellInstance = GameObject.Instantiate (this.shellPrefab, this.aimTransform.position, this.aimTransform.rotation);
+            GameObject shellInstance = PhotonNetwork.Instantiate(
+                this.shellPrefab.name,
+                this.aimTransform.position,
+                this.aimTransform.rotation
+            );
+
             shellInstance.GetComponent<Rigidbody>().velocity = this.currentShotForce * this.aimTransform.forward;
 
             this.currentShotForce = this.minFireForce;
             float elapsedSinceTrigger = Time.time - this.lastTriggerTime;
-            if(elapsedSinceTrigger > this.cooldownTime)
+            if (elapsedSinceTrigger > this.cooldownTime)
             {
                 this.startLoadingTime = Time.time + this.cooldownTime;
                 this.setState(GunState.Cooldown);
@@ -115,51 +126,51 @@ namespace UnityTank
 
         public void update(TankGunControlInput input, float elapsedTime)
         {
-            if(this.gunState == GunState.Ready)
+            if (this.gunState == GunState.Ready)
             {
-                if(input.fireTrigger)
-                {                    
+                if (input.fireTrigger)
+                {
                     this.lastTriggerTime = Time.time;
-                    this.setState(GunState.Trigger);                    
+                    this.setState(GunState.Trigger);
                 }
                 else
                 {
                     float newForceValue = 0.0f;
                     float forceRange = this.maxFireForce - this.minFireForce;
-                    if(input.aimingFire)
-                    {                        
+                    if (input.aimingFire)
+                    {
                         float forceIncPerSec = forceRange / this.maxAimTime;
                         float forceIncrement = forceIncPerSec * elapsedTime;
                         newForceValue = Mathf.Clamp(
-                            this.currentShotForce + forceIncrement, 
-                            this.minFireForce, 
+                            this.currentShotForce + forceIncrement,
+                            this.minFireForce,
                             this.maxFireForce
                         );
                     }
 
                     float aimForceReduced = elapsedTime * aimResistance;
                     this.currentShotForce = Mathf.Clamp(
-                        Mathf.MoveTowards(newForceValue,this.minFireForce, aimForceReduced),
+                        Mathf.MoveTowards(newForceValue, this.minFireForce, aimForceReduced),
                         this.minFireForce,
                         this.maxFireForce);
-                    this.aimFireForcePercent = 100.0f*(this.currentShotForce-this.minFireForce)/forceRange;
+                    this.aimFireForcePercent = 100.0f * (this.currentShotForce - this.minFireForce) / forceRange;
                 }
             }
-            else if(this.gunState == GunState.Cooldown)
+            else if (this.gunState == GunState.Cooldown)
             {
                 float elapsedSinceTrigger = Time.time - this.lastTriggerTime;
-                if(elapsedSinceTrigger > this.cooldownTime)
+                if (elapsedSinceTrigger > this.cooldownTime)
                 {
                     this.startLoadingTime = this.lastShotTime + this.cooldownTime;
                     this.loadingProgress = 0.0f;
                     this.setState(GunState.Loading);
                 }
             }
-            else if(this.gunState == GunState.Loading)
+            else if (this.gunState == GunState.Loading)
             {
                 float elapsedLoading = Time.time - this.startLoadingTime;
-                this.loadingProgress = 100.0f*elapsedLoading / this.loadingTime;
-                if(elapsedLoading > this.loadingTime)
+                this.loadingProgress = 100.0f * elapsedLoading / this.loadingTime;
+                if (elapsedLoading > this.loadingTime)
                 {
                     this.setState(GunState.Ready);
                 }

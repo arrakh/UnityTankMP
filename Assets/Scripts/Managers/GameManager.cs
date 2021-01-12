@@ -1,20 +1,26 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using Photon.Realtime;
+using Photon.Pun;
 
 namespace UnityTank
 {
+    public enum GameState { Init, GameWaiting, RoundStarting, RoundEnding, RoundPlaying, GameEnding, Stopped };
+    public enum PlayerState { Waiting, Ready, Playing, Disabled }
+
     [Serializable]
     public class GamePlayerConfig
     {
-        public Transform spawnPoint;
+        public Transform spawnPoint = null;
         public string name;
         public Color color;
-        public GameObject tankPrefab;
+        public GameObject tankPrefab = null;
         public float startHitPoint = 100.0f;
+        public float maxShellDamage = 25.0f;
         public InputAction inputActionForward;
         public InputAction inputActionReverse;
         public InputAction inputActionTurnLeft;
@@ -24,62 +30,117 @@ namespace UnityTank
     }
 
     [Serializable]
-    public class GamePlayerState
-    {
-        public int playerIndex;
-        public TankController controller;
-        public GameObject instance;
-        public GamePlayerConfig config;
-        public int roundScore;
-        public GameManager gameManager;
+    public class PlayerGameState
+    {        
+        public PlayerGameState(Player player, GamePlayerConfig config)
+        {
+            this.player = player;
+            this.config = config;
+        }
+        public Player player;
+        public GamePlayerConfig config;        
+        public PlayerState playerState = PlayerState.Disabled;
+        public GameState gameState = GameState.Init;
+        public TankController controller = null;
+        public GameObject instance = null;
+        public int roundScore = 0;
     }
 
-
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviourPun, IPunPrefabPool
     {
-        public static GameManager instance;
+        public List<GameObject> networkObjectPrefabs = new List<GameObject>();
 
-        public enum GameState {Init, RoundStarting, RoundEnding, RoundPlaying, GameEnding, Stopped};
-        public GameState state = GameState.Stopped;
-        public int scoreToWin = 5;
+        private GameState state = GameState.Stopped;
+        public int scoreToWin = 5;        
+        public bool isHost = false;
+        public LayerMask tankLayerMask;
 
-        public CameraController gameCamera;       // Reference to the CameraControl script for control during different phases.
-        public Text message;                  // Reference to the overlay Text to display winning text, etc.
-        public GamePlayerConfig[] playerConfigs;
-        public GamePlayerState[] playerStates;
+        public CameraController gameCamera = null; 
+        public Text message;        
+        public GameObject defaultTankPrefab;
+        private Dictionary<String, PlayerGameState> playerIdMap = new Dictionary<string, PlayerGameState>();
+        private PlayerGameState localPlayerState = null;               
 
         private float stateCountDown = 5.0f;
         private int gameRound = 0;
-        public LayerMask tankLayerMask;
-        public float maxShellDamage = 25.0f;
 
-        private void SpawnAllTanks()
+        public bool JoinPlayer(Player player, GamePlayerConfig config)
         {
-            this.playerStates = new GamePlayerState[this.playerConfigs.Length];
-            for(int i=0 ; i<this.playerConfigs.Length ; i++)
+            if(this.state == GameState.Stopped)
             {
-                PlayerInput controllerInput = this.playerConfigs[i].spawnPoint.gameObject.GetComponent<PlayerInput>();
-                InputActionMap inputMap = controllerInput.actions.FindActionMap("Player" + (i+1));
-                this.playerConfigs[i].inputActionForward = inputMap.FindAction("Forward");
-                this.playerConfigs[i].inputActionReverse = inputMap.FindAction("Reverse");
-                this.playerConfigs[i].inputActionTurnLeft = inputMap.FindAction("TurnLeft");
-                this.playerConfigs[i].inputActionTurnRight = inputMap.FindAction("TurnRight");
-                this.playerConfigs[i].inputActionFire = inputMap.FindAction("Fire");
-                this.playerConfigs[i].inputActionGameMenu = inputMap.FindAction("GameMenu");
-
-                this.playerStates[i] = new GamePlayerState();
-                this.playerStates[i].gameManager = this;
-                this.playerStates[i].playerIndex = i+1;
-                this.playerStates[i].config = this.playerConfigs[i];
-                this.playerStates[i].roundScore = 0;
-                this.playerStates[i].instance = GameObject.Instantiate(
-                    this.playerConfigs[i].tankPrefab,
-                    this.playerConfigs[i].spawnPoint.position,
-                    this.playerConfigs[i].spawnPoint.rotation
-                );
-                this.playerStates[i].controller = this.playerStates[i].instance.GetComponent<TankController>();
-                this.playerStates[i].controller.init(this.playerStates[i]);              
+                if (!this.playerIdMap.ContainsKey(player.UserId))
+                {
+                    PlayerGameState playerState = new PlayerGameState(player, config);
+                    this.playerIdMap.Add(player.UserId, playerState);
+                    if(playerState.config.tankPrefab == null)
+                    {
+                        playerState.config.tankPrefab = this.defaultTankPrefab;
+                    }
+                    if(player.IsLocal)
+                    {
+                        this.localPlayerState = playerState;
+                    }
+                    return true;
+                }
             }
+            return false;
+        }
+
+        public bool LeavePlayer(Player player)
+        {
+            if (this.state == GameState.Stopped)
+            {
+                if (this.playerIdMap.ContainsKey(player.UserId))
+                {
+                    this.playerIdMap.Remove(player.UserId);
+                }
+            }
+            return false;
+        }
+
+        public int CountPlayers()
+        {
+            return this.playerIdMap.Count;
+        }
+
+        public GameObject Instantiate(string prefabId, Vector3 position, Quaternion rotation)
+        {
+            foreach (GameObject item in this.networkObjectPrefabs)
+            {
+                if (item.name == prefabId)                {                    GameObject go = UnityEngine.Object.Instantiate(item, position, rotation);                    if (go.tag == "Player")                    {
+                        CameraController camCtrl = FindObjectOfType<CameraController>();                        if (camCtrl)                        {                            camCtrl.UpdateTarget(go);                        }                    }                    go.SetActive(false);                    return go;                }
+            }
+            return null;
+        }
+
+        public void Destroy(GameObject gameObject)
+        {
+        }
+
+        private void InitPlayers()
+        {
+            GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+            this.localPlayerState.playerState = PlayerState.Waiting;
+            this.localPlayerState.config.spawnPoint = spawnPoints[this.localPlayerState.player.ActorNumber % spawnPoints.Length].transform;
+            this.localPlayerState.instance = PhotonNetwork.Instantiate(
+                this.localPlayerState.config.tankPrefab.name,
+                this.localPlayerState.config.spawnPoint.position,
+                this.localPlayerState.config.spawnPoint.rotation
+            );
+            this.localPlayerState.instance.name = "LocalTank";
+            PlayerInput controllerInput = GetComponent<PlayerInput>();
+            InputActionMap inputMap = controllerInput.actions.FindActionMap("Player1");
+            this.localPlayerState.config.inputActionForward = inputMap.FindAction("Forward");
+            this.localPlayerState.config.inputActionReverse = inputMap.FindAction("Reverse");
+            this.localPlayerState.config.inputActionTurnLeft = inputMap.FindAction("TurnLeft");
+            this.localPlayerState.config.inputActionTurnRight = inputMap.FindAction("TurnRight");
+            this.localPlayerState.config.inputActionFire = inputMap.FindAction("Fire");
+            this.localPlayerState.config.inputActionGameMenu = inputMap.FindAction("GameMenu");
+
+
+            this.localPlayerState.controller = this.localPlayerState.instance.GetComponent<TankController>();
+            this.localPlayerState.controller.init(this.localPlayerState, true);
+            this.SetPlayerState(PlayerState.Ready);
         }
 
         public void OnShellExploded(ShellController shell)
@@ -110,58 +171,134 @@ namespace UnityTank
                 float explosionDistance = (tankTarget.transform.position - shell.transform.position).magnitude;
                 float relativeDistance = (shell.explosionRadius - explosionDistance) / shell.explosionRadius;
                 float explosionDamage = explosionForce * relativeDistance;
-                tankTarget.takeDamage (Mathf.Clamp(explosionDamage, 0.0f, maxShellDamage));
+                tankTarget.takeDamage (Mathf.Clamp(explosionDamage, 0.0f, tankTarget.playerState.config.maxShellDamage));
             }
         }
 
-        private void Start()
+        private void StartGame()
         {
-            GameManager.instance = this;
+            if(this.localPlayerState != null)
+            {
+                if (this.gameCamera == null)
+                {
+                    this.gameCamera = (CameraController)GameObject.FindObjectOfType(typeof(CameraController));
+                }
+                this.SetGameState(GameState.Init);
+                InitPlayers();
+                gameCamera.Reset();
 
-            this.state = GameState.Init;
-            SpawnAllTanks();
-            gameCamera.UpdateTarget();
-            gameCamera.Reset();
+                this.stateCountDown = 5.0f;
+                this.gameRound = 1;
 
-            this.stateCountDown = 5.0f;
-            this.gameRound = 1;
-            ResetAllTanks ();
-            DisableTankControl ();
-            this.state = GameState.RoundStarting;
+                this.localPlayerState.controller.controlEnabled = false;
+                this.localPlayerState.controller.reset();
+
+                this.SetGameState(GameState.GameWaiting);
+            }
+        }
+
+        [PunRPC]
+        private void RPCSetPlayerState(string userId, PlayerState netState)
+        {
+            PlayerGameState state;            if (this.playerIdMap.TryGetValue(userId, out state))            {                state.playerState = netState;                Debug.Log("[RPC-inp] set game state from " + userId + " to " + netState.ToString());            }
+        }
+
+        public void SetPlayerState(PlayerState netState)
+        {
+            this.localPlayerState.playerState = netState;
+            this.photonView.RPC("RPCSetPlayerState", RpcTarget.Others, this.localPlayerState.player.UserId, netState);
+            Debug.Log("[RPC-out] set player state " + netState.ToString());
+        }
+
+        [PunRPC]
+        private void RPCSetGameState(string userId, GameState state)
+        {
+            Debug.Log("[RPC-inp] set game state from " + userId + " to " + state.ToString());
+            PlayerGameState playerGameState;
+            if (this.playerIdMap.TryGetValue(userId, out playerGameState))
+            {
+                playerGameState.gameState = state;
+            }
+        }
+
+        private void SetGameState(GameState state)
+        {
+            this.state = state;
+            this.localPlayerState.gameState = state;
+            this.photonView.RPC("RPCSetGameState", RpcTarget.Others, this.localPlayerState.player.UserId, state);
+            Debug.Log("[RPC] set game state " + state.ToString());
+        }
+
+        private bool IsGameStateInSync()
+        {
+            if (this.state != GameState.RoundStarting && this.state != GameState.RoundEnding)            {                foreach (KeyValuePair<String, PlayerGameState> player in this.playerIdMap)                {                    if (player.Value.gameState != this.state)                    {                        if (this.isHost)                        {                            this.SetGameState(this.state);                        }                        return false;                    }                }            }            return true;
+        }
+
+        private void Awake()
+        {
+            PhotonNetwork.PrefabPool = this;
+            DontDestroyOnLoad(this.gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log("Scene Loaded : " + scene.name);
+            if(scene.name == "Game")
+            {
+                this.StartGame();
+            }
         }
 
         private void Update()
         {
-            if(this.state == GameState.RoundStarting)
+            if (this.state == GameState.GameWaiting)
+            {
+                message.text = "ROUND " + this.gameRound.ToString() + " waiting for other players ";
+                bool allPlayersReady = true;
+                foreach (KeyValuePair<String, PlayerGameState> player in this.playerIdMap)
+                {
+                    if (player.Value.playerState == PlayerState.Waiting)
+                    {
+                        allPlayersReady = false;
+                    }
+                }
+                if (allPlayersReady)
+                {
+                    this.SetGameState(GameState.RoundStarting);
+                }
+            }
+            else if(this.state == GameState.RoundStarting)
             {
                 this.stateCountDown -= Time.deltaTime;
-                message.text = "ROUND " + this.gameRound+" starting in "+Mathf.Round(this.stateCountDown);
+                message.text = "ROUND " + this.gameRound.ToString() +" starting in "+Mathf.Round(this.stateCountDown).ToString();
                 if(this.stateCountDown <= 0.0f){                                        
                     message.text = string.Empty;
-                    EnableTankControl ();
-                    this.state = GameState.RoundPlaying;
+                    this.localPlayerState.controller.controlEnabled = true;
+                    this.SetGameState(GameState.RoundPlaying);
+                    this.SetPlayerState(PlayerState.Playing);
                 }
             }
             else if(this.state == GameState.RoundPlaying)
             {
-                GamePlayerState lastTank = null;
+                PlayerGameState lastTank = null;
                 int tankAlive = 0;
-                foreach(GamePlayerState tank in this.playerStates){
-                    if (tank.instance.activeSelf)
+                foreach(KeyValuePair<String, PlayerGameState> player in this.playerIdMap){
+                    if (player.Value.playerState != PlayerState.Disabled)
                     {
-                        lastTank = tank;
+                        lastTank = player.Value;
                         tankAlive++;
                     }
                 }
                 if( tankAlive <= 1)
                 {
-                    DisableTankControl ();
-                    if(tankAlive <= 0)
+                    this.localPlayerState.controller.controlEnabled = false;
+                    if (tankAlive <= 0)
                     {
                         message.text = "Round "+this.gameRound+" Draw!";
                         this.stateCountDown = 5.0f;
                         this.gameRound++;
-                        this.state = GameState.RoundEnding;
+                        this.SetGameState(GameState.RoundEnding);
                     }
                     else
                     {
@@ -171,13 +308,13 @@ namespace UnityTank
                         {
                             this.stateCountDown = 5.0f;
                             this.gameRound++;
-                            this.state = GameState.RoundEnding;
+                            this.SetGameState(GameState.RoundEnding);
                         }     
                         else
                         {
                             message.text = lastTank.config.name+" Win the Game!";
                             this.stateCountDown = 5.0f;
-                            this.state = GameState.GameEnding;
+                            this.SetGameState(GameState.GameEnding);
                         }  
                     }
                              
@@ -185,45 +322,24 @@ namespace UnityTank
             }
             else if(this.state == GameState.RoundEnding)
             {
+                this.SetPlayerState(PlayerState.Disabled);
                 this.stateCountDown -= Time.deltaTime;
-                if(this.stateCountDown <= 0.0f){ 
-                    ResetAllTanks ();
+                if(this.stateCountDown <= 0.0f){
+                    this.SetPlayerState(PlayerState.Waiting);
+                    this.localPlayerState.controller.reset();                    
                     this.stateCountDown = 5.0f;
                     gameCamera.Reset();
-                    this.state = GameState.RoundStarting;
+                    this.SetPlayerState(PlayerState.Ready);
+                    this.SetGameState(GameState.GameWaiting);
                 }
             }
             else if(this.state == GameState.GameEnding)
             {
                 this.stateCountDown -= Time.deltaTime;
                 if(this.stateCountDown <= 0.0f){ 
-                    this.state = GameState.Stopped;
-                    SceneManager.LoadScene (0);
+                    this.SetGameState(GameState.Stopped);
+                    PhotonNetwork.LoadLevel("Launcher");
                 }
-            }
-        }
-
-        private void ResetAllTanks()
-        {
-            foreach (GamePlayerState player in playerStates)
-            {
-                player.controller.reset();
-            }
-        }
-
-        private void EnableTankControl()
-        {
-            foreach (GamePlayerState player in playerStates)
-            {
-                player.controller.controlEnabled = true;
-            }
-        }
-
-        private void DisableTankControl()
-        {
-            foreach (GamePlayerState player in playerStates)
-            {
-                player.controller.controlEnabled = false;
             }
         }
     }

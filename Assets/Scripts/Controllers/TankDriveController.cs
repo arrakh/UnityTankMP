@@ -11,7 +11,7 @@ namespace UnityTank
         public bool accelerateReverse;
         public bool turnLeft;
         public bool turnRight;
-        public void init(GamePlayerState playerState)
+        public void init(PlayerGameState playerState)
         {
             playerState.config.inputActionForward.performed += (InputAction.CallbackContext context) =>
             {
