@@ -12,20 +12,19 @@ namespace UnityTank
         public string gameVersion = "1.0";
         public string playerName = "";
         public GameManager gameManager = null;
-        public GamePlayerConfig playerConfig = new GamePlayerConfig();
 
         void Awake()
         {
             PhotonNetwork.AutomaticallySyncScene = true;
-            if (this.playerConfig.name == "")
+            if (this.playerName == "")
             {
-                this.playerConfig.name = Environment.MachineName + "/" + Environment.UserName;
+                this.playerName = Environment.MachineName + "/" + Environment.UserName;
             }
-            PhotonNetwork.LocalPlayer.NickName = this.playerConfig.name;
-            if(gameManager == null)
+            PhotonNetwork.LocalPlayer.NickName = this.playerName;
+            if (gameManager == null)
             {
                 this.gameManager = (GameManager)FindObjectOfType<GameManager>();
-            }    
+            }
         }
 
         void Start()
@@ -52,7 +51,8 @@ namespace UnityTank
         {
             Debug.Log("Join random room failed (" + returnCode.ToString() + ") message: " + message);
             Debug.Log("Creating new room...");
-            PhotonNetwork.CreateRoom(null, new RoomOptions {
+            PhotonNetwork.CreateRoom(null, new RoomOptions
+            {
                 MaxPlayers = this.maxPlayersPerRoom,
                 PublishUserId = true
             });
@@ -65,8 +65,8 @@ namespace UnityTank
 
         public override void OnJoinedRoom()
         {
-            
-            if(PhotonNetwork.IsMasterClient)
+
+            if (PhotonNetwork.IsMasterClient)
             {
                 Debug.Log("Join random room success ! (as master)");
                 this.OnPlayerEnteredRoom(PhotonNetwork.LocalPlayer);
@@ -74,7 +74,7 @@ namespace UnityTank
             else
             {
                 Debug.Log("Join random room success ! (as client)");
-                foreach(Player player in PhotonNetwork.PlayerList)
+                foreach (Player player in PhotonNetwork.PlayerList)
                 {
                     this.OnPlayerEnteredRoom(player);
                 }
@@ -100,20 +100,20 @@ namespace UnityTank
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            if(this.gameManager.JoinPlayer(newPlayer, this.playerConfig))
+            if (this.gameManager.JoinPlayer(newPlayer))
             {
                 Debug.Log("Player Count " + this.gameManager.CountPlayers().ToString());
             }
-            
-            if(this.gameManager.CountPlayers() == this.maxPlayersPerRoom)
+
+            if (this.gameManager.CountPlayers() == this.maxPlayersPerRoom)
             {
                 LoadGame();
             }
         }
 
         public override void OnPlayerLeftRoom(Player player)
-        {            
-            if(this.gameManager.LeavePlayer(player))
+        {
+            if (this.gameManager.LeavePlayer(player))
             {
                 Debug.Log("Player Left Room " + player.ToString());
             }
@@ -121,7 +121,7 @@ namespace UnityTank
 
         private void LoadGame()
         {
-            if(PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient)
             {
                 this.gameManager.isHost = true;
                 PhotonNetwork.LoadLevel("Game");

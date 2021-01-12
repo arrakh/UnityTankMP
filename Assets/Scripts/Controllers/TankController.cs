@@ -2,15 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using Photon.Realtime;
+using Photon.Pun;
 
 namespace UnityTank
 {
     [Serializable]
-    public class TankController : MonoBehaviour
+    public class TankController : MonoBehaviourPun, IPunInstantiateMagicCallback
     {
         public float hitPoints = 100.0f;
-        public float maxHitPoints = 100.0f;
-        public Transform spawnPoint;
         public bool controlEnabled = false;
 
         public TankDriveControlInput driveControlInput = new TankDriveControlInput();
@@ -21,6 +21,12 @@ namespace UnityTank
         public TankKinematicController kinematicController = new TankKinematicController();
         public TankSfxController sfxController = new TankSfxController();
         public PlayerGameState playerState = null;
+
+        public void OnPhotonInstantiate(PhotonMessageInfo info)
+        {
+            GameManager gm = FindObjectOfType<GameManager>();
+            gm.RegisterNetworkGameObject(this.gameObject, info);
+        }
 
         private void OnShotTriggered()
         {
@@ -53,11 +59,17 @@ namespace UnityTank
         {
             this.controlEnabled = enableControl;
             this.playerState = state;
-            this.spawnPoint = state.config.spawnPoint;
-            this.maxHitPoints = state.config.startHitPoint;
-            this.driveControlInput.init(state);
 
-            this.gunControlInput.init(state);
+            if (enableControl)
+            {
+                this.driveControlInput.init(state);
+                this.gunControlInput.init(state);
+                state.config.inputActionGameMenu.performed += (InputAction.CallbackContext context) =>
+                {
+                    GameManager gm = FindObjectOfType<GameManager>();
+                    gm.QuitGame();
+                };
+            }
 
             this.gunController.stateTrigger -= this.OnShotTriggered;
             this.gunController.stateReady -= this.OnGunReady;
@@ -71,27 +83,18 @@ namespace UnityTank
 
             this.vfxController.setColor(state.config.color);
             this.vfxController.setPlayerLabel(state.config.name);
-            state.config.inputActionGameMenu.performed += (InputAction.CallbackContext context) =>
-            {
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
-            };
 
             this.reset();
         }
 
         public void reset()
         {
-            this.hitPoints = this.maxHitPoints;
+            this.hitPoints = this.playerState.config.startHitPoint;
             this.vfxController.setHealthValue(100.0f);
             this.vfxController.setLoadingIndicator(100.0f);
             this.vfxController.setGunAimingState(0.0f);
-            gameObject.SetActive(false);
-            gameObject.transform.position = this.spawnPoint.position;
-            gameObject.SetActive(true);
+            gameObject.transform.position = this.playerState.config.spawnPoint.transform.position;
+            gameObject.transform.rotation = this.playerState.config.spawnPoint.transform.rotation;
             this.gunControlInput.enable = true;
             this.gunControlInput.reset();
         }
@@ -99,7 +102,7 @@ namespace UnityTank
         public void takeDamage(float hit)
         {
             this.hitPoints -= hit;
-            float healthPercent = 100.0f * (this.hitPoints / this.maxHitPoints);
+            float healthPercent = 100.0f * (this.hitPoints / this.playerState.config.startHitPoint);
             this.vfxController.setHealthValue(healthPercent);
             if (this.hitPoints <= 0.0f)
             {
@@ -112,7 +115,6 @@ namespace UnityTank
             if (gameObject.activeSelf)
             {
                 this.vfxController.showDestroyFx(this.gameObject.transform);
-                gameObject.SetActive(false);
                 GameManager gameManager = FindObjectOfType<GameManager>();
                 gameManager.SetPlayerState(PlayerState.Disabled);
             }
