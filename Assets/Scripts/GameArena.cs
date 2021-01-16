@@ -65,7 +65,7 @@ namespace UniTank
             {
                 aimTransform = owner.transform;
             }
-            GameObject shellInstance = GameObject.Instantiate(shellPrefab, aimTransform.position, aimTransform.rotation);
+            GameObject shellInstance = this.game.Instantiate(shellPrefab, aimTransform.position, aimTransform.rotation);
             TankShell shell = shellInstance.GetComponent<TankShell>();
             if (shell != null)
             {
@@ -86,7 +86,7 @@ namespace UniTank
             {
                 explosionTransform = shell.gameObject.transform;
             }
-            GameObject shotExplosion = GameObject.Instantiate(
+            GameObject shotExplosion = this.game.Instantiate(
                 shell.shotExplosionPrefab,
                 explosionTransform.position,
                 explosionTransform.rotation
@@ -96,7 +96,7 @@ namespace UniTank
 
         protected void ProcessShellExplosion(TankShell shell)
         {
-            GameObject explosion = Instantiate(shell.explosionPrefab, shell.transform.position, shell.transform.rotation);
+            GameObject explosion = this.game.Instantiate(shell.explosionPrefab, shell.transform.position, shell.transform.rotation);
             explosion.SetActive(true);
 
             Collider[] colliders = Physics.OverlapSphere(shell.transform.position, shell.explosionRadius, this.tankLayerMask);

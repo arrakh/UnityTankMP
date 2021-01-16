@@ -95,7 +95,7 @@ namespace UniTank
             {
                 tankTransform = this.tank.gameObject.transform;
             }
-            GameObject.Instantiate(this.tankExplosionPrefab, tankTransform.position, tankTransform.rotation);
+            this.GetGame().Instantiate(this.tankExplosionPrefab, tankTransform.position, tankTransform.rotation);
         }
     }
 }

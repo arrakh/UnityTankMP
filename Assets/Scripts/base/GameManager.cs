@@ -11,7 +11,8 @@ namespace UniTank
         public enum State
         {
             Init,
-            Waiting,
+            WaitPlayersJoin,
+            WaitPlayersReady,
             RoundStarting,
             RoundEnding,
             RoundPlaying,
@@ -38,8 +39,7 @@ namespace UniTank
         public Action OnRoundStarted;
         public Action OnRoundEnded;
         public Action OnGameEnd;
-        public GameArena arena;
-        public GameObject tankPrefab;
+        public GameArena arena;        
         public Text message;
         public Color[] tankColors;
 
@@ -49,136 +49,171 @@ namespace UniTank
         protected int gameRound = 0;
         protected float stateCountDown = 5.0f;
 
-        public void Awake()
+        public void InitGame()
         {
             this.OnTankDeath -= this.ProcessTankDeath;
             this.OnTankDeath += this.ProcessTankDeath;
-            if(this.arena == null)
+            if (this.arena == null)
             {
-                this.arena = FindObjectOfType<GameArena>(true);                
+                this.arena = FindObjectOfType<GameArena>(true);
             }
-            if(this.arena != null)
+            if (this.arena != null)
             {
                 this.arena.Init(this);
                 this.arena.gameObject.SetActive(true);
-            }
-            while(this.players.Count < this.config.maxPlayer)
-            {
-                LocalTankPlayer player = new LocalTankPlayer(this);
-                this.players.Add(player);
-                this.playerScores.Add(player, 0);
+            }            
+        }
 
-                Transform tankSpawnPoint = this.arena.GetPlayerTankSpawnPoint(player);
-                GameObject tankObject = Instantiate(
-                    this.tankPrefab,
-                    tankSpawnPoint.position,
-                    tankSpawnPoint.rotation,
-                    this.arena.gameObject.transform
-                );
-                tankObject.name = player.GetName() + "Tank";
-                Tank tank = tankObject.GetComponent<Tank>();
-                tank.color = this.tankColors[this.players.Count % this.tankColors.Length];
-                if(tank != null)
-                {
-                    player.SetControledTank(tank.GetComponent<Tank>());
-                }
-                if(this.OnTankSpawn != null)
-                {
-                    this.OnTankSpawn(tank);
-                }
+        public void AddPlayer(TankPlayer player, Tank tank, int score = 0)
+        {
+            this.players.Add(player);
+            this.playerScores.Add(player, score);
+            player.SetControledTank(tank.GetComponent<Tank>());
+
+            Transform tankSpawnPoint = this.arena.GetPlayerTankSpawnPoint(player);
+            tank.gameObject.transform.position = tankSpawnPoint.position;
+            tank.gameObject.transform.rotation = tankSpawnPoint.rotation;
+            tank.color = this.tankColors[this.players.Count % this.tankColors.Length];
+
+            if (this.OnTankSpawn != null)
+            {
+                this.OnTankSpawn(tank);
             }
+        }
+
+        public void StartGame()
+        {
+            this.SetState(State.Init);
+            this.InitGame();
+            if (this.OnGameStart != null)
+            {
+                this.OnGameStart();
+            }
+            this.SetState(State.WaitPlayersJoin);
         }
 
         public void Start()
         {
-            this.SetState(State.Init);
-            if(this.OnGameStart != null)
-            {
-                this.OnGameStart();
-            }
-            this.SetGameRound(1);            
+            this.StartGame(); 
         }
 
-        protected void Update()
+        protected virtual void UpdateStateWaitPlayerJoin()
         {
-            if(this.state == State.Waiting)
+            if (this.players.Count >= this.config.maxPlayer)
             {
-                bool allPlayerReady = true;
-                foreach (TankPlayer player in players)
-                {
-                    if(player.GetState() != TankPlayer.State.Ready)
-                    {
-                        allPlayerReady = false;
-                    }
-                }
-                if(allPlayerReady)
-                {
-                    this.SetState(State.RoundStarting);
-                }
+                this.StarGameRound(1);
             }
-            if (this.state == State.RoundStarting)
-            {
-                this.stateCountDown -= Time.deltaTime;
-                message.text = "ROUND " + this.gameRound + " starting in " + Mathf.Round(this.stateCountDown);
-                if (this.stateCountDown <= 0.0f)
-                {
-                    message.text = string.Empty;
-                    this.SetState(State.RoundPlaying);
-                }
-            }
-            else if (this.state == State.RoundPlaying)
-            {
-                TankPlayer lastPlayer = null;
-                int tankAlive = 0;
-                foreach (TankPlayer player in players)
-                {
-                    if(player.GetState() == TankPlayer.State.Playing)
-                    {
-                        tankAlive++;
-                        lastPlayer = player;
-                    }
-                }
+        }
 
-                if (tankAlive <= 1)
+        protected void UpdateStateWaitPlayerReady()
+        {
+            bool allPlayerReady = true;
+            foreach (TankPlayer player in players)
+            {
+                if (player.GetState() != TankPlayer.State.Ready)
                 {
-                    if (tankAlive <= 0)
+                    allPlayerReady = false;
+                }
+            }
+            if (allPlayerReady)
+            {
+                this.SetState(State.RoundStarting);
+            }
+        }
+
+        protected void UpdateStateRoundStarting()
+        {
+            this.stateCountDown -= Time.deltaTime;
+            message.text = "ROUND " + this.gameRound + " starting in " + Mathf.Round(this.stateCountDown);
+            if (this.stateCountDown <= 0.0f)
+            {
+                message.text = string.Empty;
+                this.SetState(State.RoundPlaying);
+            }
+        }
+
+        protected void UpdateStateRoundPlaying()
+        {
+            TankPlayer lastPlayer = null;
+            int tankAlive = 0;
+            foreach (TankPlayer player in players)
+            {
+                if (player.GetState() == TankPlayer.State.Playing)
+                {
+                    tankAlive++;
+                    lastPlayer = player;
+                }
+            }
+
+            if (tankAlive <= 1)
+            {
+                if (tankAlive <= 0)
+                {
+                    message.text = "Round " + this.GetCurrentRound().ToString() + " Draw!";
+                    this.SetState(State.RoundEnding);
+                }
+                else
+                {
+                    message.text = lastPlayer.GetName() + " Win Round " + this.GetCurrentRound();
+                    this.SetScore(lastPlayer, this.GetPlayerScore(lastPlayer) + 1);
+                    if (this.GetPlayerScore(lastPlayer) < this.config.scoreToWIn)
                     {
-                        message.text = "Round " + this.GetCurrentRound().ToString() + " Draw!";
                         this.SetState(State.RoundEnding);
                     }
                     else
                     {
-                        message.text = lastPlayer.GetName() + " Win Round " + this.GetCurrentRound();
-                        this.SetScore(lastPlayer, this.GetPlayerScore(lastPlayer) + 1);
-                        if (this.GetPlayerScore(lastPlayer) < this.config.scoreToWIn)
-                        {
-                            this.SetState(State.RoundEnding);
-                        }
-                        else
-                        {
-                            message.text = lastPlayer.GetName() + " Win the Game!";
-                            this.SetState(State.GameEnding);
-                        }
+                        message.text = lastPlayer.GetName() + " Win the Game!";
+                        this.SetState(State.GameEnding);
                     }
-
                 }
+
+            }
+        }
+
+        protected void UpdateStateRoundEnding()
+        {
+            this.stateCountDown -= Time.deltaTime;
+            if (this.stateCountDown <= 0.0f)
+            {
+                this.StarGameRound(this.GetCurrentRound() + 1);
+            }
+        }
+
+        protected void UpdateStateGameEnding()
+        {
+            this.stateCountDown -= Time.deltaTime;
+            if (this.stateCountDown <= 0.0f)
+            {
+                this.SetState(State.Stopped);
+                SceneManager.LoadScene(0);
+            }
+        }
+
+        protected void Update()
+        {
+            if(this.state == State.WaitPlayersJoin)
+            {
+                this.UpdateStateWaitPlayerJoin();
+            }
+            else if(this.state == State.WaitPlayersReady)
+            {
+                this.UpdateStateWaitPlayerReady();
+            }
+            if (this.state == State.RoundStarting)
+            {
+                this.UpdateStateRoundStarting();
+            }
+            else if (this.state == State.RoundPlaying)
+            {
+                this.UpdateStateRoundPlaying();
             }
             else if (this.state == State.RoundEnding)
             {
-                this.stateCountDown -= Time.deltaTime;
-                if (this.stateCountDown <= 0.0f)
-                {
-                    this.SetGameRound(this.GetCurrentRound() + 1);
-                }
+                this.UpdateStateRoundEnding();
             }
             else if (this.state == State.GameEnding)
             {
-                this.stateCountDown -= Time.deltaTime;
-                if (this.stateCountDown <= 0.0f)
-                {
-                    this.SetState(State.Stopped);
-                    SceneManager.LoadScene(0);
-                }
+                this.UpdateStateGameEnding();
             }
         }
 
@@ -230,7 +265,7 @@ namespace UniTank
             }
         }
 
-        protected void SetGameRound(int round)
+        protected void StarGameRound(int round)
         {
             this.gameRound = round;
             this.arena.Reset();
@@ -238,7 +273,7 @@ namespace UniTank
             {
                 player.PrepareRound(round);
             }
-            this.SetState(State.Waiting);
+            this.SetState(State.WaitPlayersReady);
         }
 
         public State GetState()
@@ -294,6 +329,11 @@ namespace UniTank
         {
             tank.Explode();
             tank.GetPlayer().EndRound(this.GetCurrentRound());            
+        }
+
+        public virtual GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
+        {
+            return GameObject.Instantiate(prefab, position, rotation);
         }
     }
 }
