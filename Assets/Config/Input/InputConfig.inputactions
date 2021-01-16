@@ -2,11 +2,19 @@
     "name": "InputConfig",
     "maps": [
         {
-            "name": "Player1",
+            "name": "TankControl",
             "id": "e74e89c4-e3ee-4c5d-bd25-80716efa04c9",
             "actions": [
                 {
                     "name": "Forward",
+                    "type": "Button",
+                    "id": "f5481f75-fc04-4b9d-8445-697b8ab342cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player1/Forward",
                     "type": "Button",
                     "id": "961436b5-bee9-4d8e-8da8-4bce052072fc",
                     "expectedControlType": "Button",
@@ -14,7 +22,23 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Player2/Forward",
+                    "type": "Button",
+                    "id": "59dbff52-1cea-40f4-9cd7-d0b22acd5138",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Reverse",
+                    "type": "Button",
+                    "id": "da8413f8-d6f8-4a62-a9d8-7db4df51b4bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player1/Reverse",
                     "type": "Button",
                     "id": "2197f513-441e-483c-9e7e-701834845ccb",
                     "expectedControlType": "Button",
@@ -22,7 +46,23 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Player2/Reverse",
+                    "type": "Button",
+                    "id": "0b8f5065-479d-4edc-9243-62d508c55d86",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "TurnLeft",
+                    "type": "Button",
+                    "id": "d9df3a45-6fe7-4a15-9477-750832312170",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player1/TurnLeft",
                     "type": "Button",
                     "id": "a9e31dcb-9eaa-4ba6-bc2f-e86361e05527",
                     "expectedControlType": "Button",
@@ -30,7 +70,23 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Player2/TurnLeft",
+                    "type": "Button",
+                    "id": "d8df52bc-394c-43f2-94ee-a89645b8284f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "TurnRight",
+                    "type": "Button",
+                    "id": "107e2bdc-0f02-495c-b7f4-d1d4c9f40891",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player1/TurnRight",
                     "type": "Button",
                     "id": "609ec2f8-5e7f-492b-b03e-5d7a27c5feac",
                     "expectedControlType": "Button",
@@ -38,7 +94,23 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Player2/TurnRight",
+                    "type": "Button",
+                    "id": "6422479d-cf4d-45e8-b593-b6a36617f7d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Fire",
+                    "type": "Button",
+                    "id": "cf8e0dec-37b2-42f5-9999-61ab10274ddd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player1/Fire",
                     "type": "Button",
                     "id": "8b35a60b-db9f-4b74-afc8-69df3c016db8",
                     "expectedControlType": "Button",
@@ -46,9 +118,33 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Player2/Fire",
+                    "type": "Button",
+                    "id": "b41ae7bc-0d6d-46ac-af46-35905f051490",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "GameMenu",
                     "type": "Button",
+                    "id": "c812f3e8-ad21-40d0-a170-8b9c217d3612",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player1/GameMenu",
+                    "type": "Button",
                     "id": "4740fb88-7291-48b5-a9c9-7f49e2940368",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Player2/GameMenu",
+                    "type": "Button",
+                    "id": "71dcb88b-b630-47c7-bf7e-564eca8823a0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -62,7 +158,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Forward",
+                    "action": "Player1/Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -73,7 +169,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Forward",
+                    "action": "Player1/Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -84,7 +180,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Reverse",
+                    "action": "Player1/Reverse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -95,7 +191,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Reverse",
+                    "action": "Player1/Reverse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -106,7 +202,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "TurnLeft",
+                    "action": "Player1/TurnLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -117,7 +213,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "TurnLeft",
+                    "action": "Player1/TurnLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -128,7 +224,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "TurnRight",
+                    "action": "Player1/TurnRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -139,7 +235,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "TurnRight",
+                    "action": "Player1/TurnRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -150,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "Player1/Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -161,7 +257,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "GameMenu",
+                    "action": "Player1/GameMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -172,70 +268,113 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "GameMenu",
+                    "action": "Player1/GameMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Player2",
-            "id": "1ebe5c35-4cd5-4336-a645-9283abcf8996",
-            "actions": [
-                {
-                    "name": "Forward",
-                    "type": "Button",
-                    "id": "b1237266-3fd3-43b0-8c11-6bde9bcdd7b2",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 },
-                {
-                    "name": "Reverse",
-                    "type": "Button",
-                    "id": "1d36163a-9939-42e7-a66f-04ce0502476d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "TurnLeft",
-                    "type": "Button",
-                    "id": "4643082a-dcd5-4830-8d06-5c1ba8d49753",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "TurnRight",
-                    "type": "Button",
-                    "id": "db05ef20-2718-48cf-af1a-f64104c7073f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Fire",
-                    "type": "Button",
-                    "id": "64cece11-8757-4485-8b6c-6e71204ea9d9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "GameMenu",
-                    "type": "Button",
-                    "id": "d29a99b6-ec5e-45fe-8d06-37b5f22b0645",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
                 {
                     "name": "",
-                    "id": "e107fc80-f801-4e3e-8abb-cba34d5b645e",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "455771e1-2fc8-4121-9973-1ecc5c972b45",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Player2/Reverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4936c141-148c-423e-8c78-954ecbc5b927",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Player2/Reverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d4b1532-084d-4155-b5de-87e089b8f337",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Player2/TurnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0efdd0f9-b256-473f-960b-6151860cf0e2",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Player2/TurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a294e1d-1acb-49c0-9ca3-221ca6bc5019",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Player2/TurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b51f131d-3d50-4936-8e04-70cd04df2aed",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Player2/Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "438b3b8d-d5c6-4546-87ba-9c9cf475bdd7",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Player2/Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f4d6861a-c3ff-4634-a21c-41aeedcc88ba",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Player2/GameMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5529ea1-52d5-407f-a60f-39feadd035c9",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Player2/GameMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9b8a997-cc68-4a89-846c-5a0e5ba6287b",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -245,8 +384,19 @@
                 },
                 {
                     "name": "",
-                    "id": "2dbb75a2-ed2b-4710-bcef-f6205594f0c5",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "f4280dca-8598-4c3d-a573-ad840a7c342d",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2ef8915-dac2-4804-8a37-97fb6e20fd68",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -256,8 +406,19 @@
                 },
                 {
                     "name": "",
-                    "id": "8bc0578c-536f-43d1-baed-90ff77a14b61",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "7ef21f61-7b50-4e8a-8e05-807f8a39ee8e",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Reverse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "764ff488-aae7-4ab0-a72e-1cd6b1bfd3b4",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -267,8 +428,19 @@
                 },
                 {
                     "name": "",
-                    "id": "67922a65-3f5c-45af-b97c-2a993fdab11b",
-                    "path": "<Keyboard>/rightArrow",
+                    "id": "0d728a1b-ff07-41b9-9397-8e93eb7cf203",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "TurnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be8d0d1a-92ad-4a1c-8df4-9cfdba24a6a4",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -278,8 +450,19 @@
                 },
                 {
                     "name": "",
-                    "id": "95c760e8-ee39-4760-bdc6-c284f4687233",
-                    "path": "<Keyboard>/enter",
+                    "id": "e6e94889-dfce-4509-86b6-c0e64c5bd597",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "TurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df003f86-1c22-41f8-82d7-10a2b3dc3b4a",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -289,19 +472,8 @@
                 },
                 {
                     "name": "",
-                    "id": "9bfe85fc-5c49-4623-b3d8-2743f7b8ef12",
-                    "path": "<Keyboard>/rightCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6965d53e-2ece-4ed0-b576-b65f84fa2fdf",
-                    "path": "<Keyboard>/backspace",
+                    "id": "a7dd8d3e-745d-4a0a-892d-7b23af32700f",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -311,12 +483,23 @@
                 },
                 {
                     "name": "",
-                    "id": "44c80e31-9818-4ebb-9580-c326da10cda6",
+                    "id": "baa019d0-241e-431e-835a-64bcd8043bf8",
                     "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "GameMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4d5a0c8-f9b9-4a91-aba4-c8825b9991f6",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2/Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

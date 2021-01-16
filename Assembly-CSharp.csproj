@@ -56,18 +56,25 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/CameraController.cs" />
     <Compile Include="Assets/Scripts/UI/UIDirectionControl.cs" />
-    <Compile Include="Assets/Scripts/Managers/GameManager.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankDriveController.cs" />
+    <Compile Include="Assets/Scripts/impl/TankKinematicController.cs" />
+    <Compile Include="Assets/Scripts/Explosion.cs" />
+    <Compile Include="Assets/Scripts/TankShell.cs" />
     <Compile Include="Assets/Scripts/UI/UIScreenPos.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/ShellController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/CameraController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankGunController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankKinematicController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankSfxController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/ExplosionController.cs" />
-    <Compile Include="Assets/Scripts/Controllers/TankVfxController.cs" />
+    <Compile Include="Assets/Scripts/impl/TankGunController.cs" />
+    <Compile Include="Assets/Scripts/base/TankController.cs" />
+    <Compile Include="Assets/Scripts/Tank.cs" />
+    <Compile Include="Assets/Scripts/impl/LocalTankPlayer.cs" />
+    <Compile Include="Assets/Scripts/impl/TankVFxController.cs" />
+    <Compile Include="Assets/Scripts/impl/TankControlKeyboardInput.cs" />
+    <Compile Include="Assets/Scripts/base/TankControlInput.cs" />
+    <Compile Include="Assets/Scripts/base/TankPlayer.cs" />
+    <Compile Include="Assets/Scripts/TankShellController.cs" />
+    <Compile Include="Assets/Scripts/impl/TankSFxController.cs" />
+    <Compile Include="Assets/Scripts/impl/TankDriveController.cs" />
+    <Compile Include="Assets/Scripts/GameArena.cs" />
+    <Compile Include="Assets/Scripts/GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Fonts/Bowlby_One/FontLicense.txt" />
