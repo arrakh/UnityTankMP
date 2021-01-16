@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\Photon\Simple\Components\Editor\SyncTransformEditor.cs" />
     <Compile Include="Assets\Photon\Simple\Components\Editor\SyncAnimatorEditor.cs" />
-    <Compile Include="Assets\Photon\Simple\Example\Assistants\Editor\TutorialAssists.cs" />
     <Compile Include="Assets\Photon\Simple\Utilities\GUITools\Editor\GUIColorBoxes.cs" />
     <Compile Include="Assets\Photon\Simple\Components\Editor\SyncVitalsEditor.cs" />
   </ItemGroup>
@@ -696,10 +695,6 @@
       <Project>{4B107AC7-06E6-2167-89B0-93C92A98CD97}</Project>
       <Name>BitpackersASMDEF</Name>
     </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
-      <Project>{D28DDCAB-4E57-AD30-8BB4-172026C3BAD1}</Project>
-      <Name>PhotonUnityNetworking.Demos</Name>
-    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{75DAA265-6BB7-40BB-5096-616171A045F8}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
@@ -716,10 +711,6 @@
       <Project>{1C6728BD-AA41-14DE-1450-32307B3DA8A9}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{B6BA122B-68C0-27D9-8AC5-42E52751594B}</Project>
-      <Name>PunDemos.DemoHubEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
       <Project>{AD3DD2D0-F45A-4A11-5A12-129566186CC9}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
@@ -727,10 +718,6 @@
     <ProjectReference Include="EmoCompressUtilsASMDEF.csproj">
       <Project>{EFE9C36F-745A-4CA8-8DA2-2CC892ACAEA5}</Project>
       <Name>EmoCompressUtilsASMDEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{25D71DD0-C226-19F7-52C3-0221D8312523}</Project>
-      <Name>PunDemos.DemoSlotcarEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{8ADA909E-0F12-B921-6947-25E57D5AD60D}</Project>

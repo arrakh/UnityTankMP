@@ -3,7 +3,7 @@ using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 
-namespace UnityTank
+namespace UniTank
 {
     public class Launcher : MonoBehaviourPunCallbacks
     {
@@ -11,7 +11,7 @@ namespace UnityTank
         public byte maxPlayersPerRoom = 2;
         public string gameVersion = "1.0";
         public string playerName = "";
-        public GameManager gameManager = null;
+        public NetGameManager gameManager = null;
 
         void Awake()
         {
@@ -23,7 +23,7 @@ namespace UnityTank
             PhotonNetwork.LocalPlayer.NickName = this.playerName;
             if (gameManager == null)
             {
-                this.gameManager = (GameManager)FindObjectOfType<GameManager>();
+                this.gameManager = FindObjectOfType<NetGameManager>();
             }
         }
 
@@ -100,33 +100,33 @@ namespace UnityTank
 
         public override void OnPlayerEnteredRoom(Player newPlayer)
         {
-            if (this.gameManager.JoinPlayer(newPlayer))
+            if (this.gameManager.NetPlayerJoin(newPlayer))
             {
-                Debug.Log("Player Count " + this.gameManager.CountPlayers().ToString());
+                Debug.Log("Player Count " + this.gameManager.GetPlayerCount().ToString());
             }
 
-            if (this.gameManager.CountPlayers() == this.maxPlayersPerRoom)
-            {
-                LoadGame();
-            }
+            //if (this.gameManager.GetPlayerCount() == this.maxPlayersPerRoom)
+            //{
+            //    LoadGame();
+            //}
         }
 
         public override void OnPlayerLeftRoom(Player player)
         {
-            if (this.gameManager.LeavePlayer(player))
+            if (this.gameManager.NetPlayerLeave(player))
             {
                 Debug.Log("Player Left Room " + player.ToString());
             }
         }
 
-        private void LoadGame()
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                this.gameManager.isHost = true;
-                PhotonNetwork.LoadLevel("Game");
-            }
-        }
+        //private void LoadGame()
+        //{
+        //    if (PhotonNetwork.IsMasterClient)
+        //    {
+        //        this.gameManager.isHost = true;
+        //        PhotonNetwork.LoadLevel("Game");
+        //    }
+        //}
     }
 
 }
