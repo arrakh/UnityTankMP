@@ -107,7 +107,6 @@
     <Compile Include="Assets\Photon\Simple\Components\ContactSystems\SyncVitals\UI\VitalUIBase.cs" />
     <Compile Include="Assets\Photon\Simple\Core\NetMaster\DoubleTime.cs" />
     <Compile Include="Assets\Photon\Simple\Components\ContactSystems\Interfaces\IConsumable.cs" />
-    <Compile Include="Assets\Scripts\Launcher.cs" />
     <Compile Include="Assets\Photon\Simple\Components\SyncOculus\SimpleOVRGrabbable.cs" />
     <Compile Include="Assets\Scripts\base\TankController.cs" />
     <Compile Include="Assets\Photon\PhotonUtilities\EditorTools\SolidTextures.cs" />
