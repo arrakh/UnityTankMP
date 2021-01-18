@@ -16,10 +16,19 @@ namespace UniTank
             return this.netPlayer.NickName;
         }
 
-        public override void SetControledTank(Tank tank)
+        public bool IsLocal()
         {
-            this.tank = tank;
-            tank.Init(this, netPlayer.IsLocal);
+            return this.netPlayer.IsLocal;
+        }
+
+        public string GetUserId()
+        {
+            return this.netPlayer.UserId;
+        }
+
+        public override int GetPlayerNumber()
+        {
+            return netPlayer.ActorNumber;
         }
     }
 }

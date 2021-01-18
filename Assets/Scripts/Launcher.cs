@@ -65,20 +65,9 @@ namespace UniTank
 
         public override void OnJoinedRoom()
         {
-
-            if (PhotonNetwork.IsMasterClient)
+            if (this.gameManager.NetPlayerJoin(PhotonNetwork.LocalPlayer))
             {
-                Debug.Log("Join random room success ! (as master)");
-                this.OnPlayerEnteredRoom(PhotonNetwork.LocalPlayer);
-            }
-            else
-            {
-                Debug.Log("Join random room success ! (as client)");
-                foreach (Player player in PhotonNetwork.PlayerList)
-                {
-                    this.OnPlayerEnteredRoom(player);
-                }
-                this.OnPlayerEnteredRoom(PhotonNetwork.LocalPlayer);
+                Debug.Log("Player Count " + this.gameManager.GetPlayerCount().ToString());
             }
         }
 
@@ -97,36 +86,6 @@ namespace UniTank
         {
             Debug.Log("Left Room.");
         }
-
-        public override void OnPlayerEnteredRoom(Player newPlayer)
-        {
-            if (this.gameManager.NetPlayerJoin(newPlayer))
-            {
-                Debug.Log("Player Count " + this.gameManager.GetPlayerCount().ToString());
-            }
-
-            //if (this.gameManager.GetPlayerCount() == this.maxPlayersPerRoom)
-            //{
-            //    LoadGame();
-            //}
-        }
-
-        public override void OnPlayerLeftRoom(Player player)
-        {
-            if (this.gameManager.NetPlayerLeave(player))
-            {
-                Debug.Log("Player Left Room " + player.ToString());
-            }
-        }
-
-        //private void LoadGame()
-        //{
-        //    if (PhotonNetwork.IsMasterClient)
-        //    {
-        //        this.gameManager.isHost = true;
-        //        PhotonNetwork.LoadLevel("Game");
-        //    }
-        //}
     }
 
 }

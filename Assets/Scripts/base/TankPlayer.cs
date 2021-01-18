@@ -24,6 +24,11 @@ namespace UniTank
             return this.state;
         }
 
+        public virtual int GetPlayerNumber()
+        {
+            return this.GetGame().GetPlayerIndex(this);
+        }
+
         protected virtual bool SetState(State state)
         {
             this.state = state;

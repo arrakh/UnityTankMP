@@ -10,9 +10,9 @@ namespace UniTank
         public bool isHost = false;
         public GameObject tankPrefab;
         protected Dictionary<string, NetTankPlayer> playerIdMap = new Dictionary<string, NetTankPlayer>();
-        public bool NetPlayerJoin(Player netPlayer)
+        public bool NetPlayerJoin(Player netPlayer, Tank tank = null)
         {
-            if(this.GetPlayerCount() < this.config.maxPlayer)
+            if(tank == null && netPlayer.IsLocal)
             {
                 NetTankPlayer player = new NetTankPlayer(this, netPlayer);
                 GameObject tankObject = PhotonNetwork.Instantiate(
@@ -20,31 +20,62 @@ namespace UniTank
                     this.arena.gameObject.transform.position,
                     this.arena.gameObject.transform.rotation
                 );
-                this.playerIdMap.Add(netPlayer.UserId, player);
                 tankObject.name = player.GetName() + " Tank";
-                Tank tank = tankObject.GetComponent<Tank>();                
+                tank = tankObject.GetComponent<Tank>();
 
+                Debug.Log("Adding local player " + player.GetName());
+                this.playerIdMap.Add(netPlayer.UserId, player);
                 this.AddPlayer(player, tank);
-                return true;
+
             }
-            return false;
+            else if(tank != null && !netPlayer.IsLocal)
+            {
+                NetTankPlayer player = new NetTankPlayer(this, netPlayer);
+                GameObject tankObject = tank.gameObject;
+                tankObject.name = player.GetName() + " Tank";
+
+                Debug.Log("Adding remote player " + player.GetName());
+
+                this.playerIdMap.Add(netPlayer.UserId, player);
+                this.AddPlayer(player, tank);
+
+            }
+            return true;
         }
 
-        public bool NetPlayerLeave(Player netPlayer)
+        public bool NetPlayerLeave(NetTankPlayer netPlayer)
         {
-            NetTankPlayer tankPlayer = null;
-            if(this.playerIdMap.TryGetValue(netPlayer.UserId, out tankPlayer))
+            if(this.playerIdMap.ContainsKey(netPlayer.GetUserId()))
             {
-                this.RemovePlayer(tankPlayer);
-                this.playerIdMap.Remove(netPlayer.UserId);
+                if(this.OnTankRemoved != null)
+                {
+                    this.OnTankRemoved(netPlayer.GetTank());
+                }
+                this.RemovePlayer(netPlayer);
+                this.playerIdMap.Remove(netPlayer.GetUserId());
                 return true;
-            }            
-            return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public NetTankPlayer GetPlayerByUserId(string userId)
+        {
+            NetTankPlayer player = null;
+            this.playerIdMap.TryGetValue(userId, out player);
+            return player;
         }
 
         public override GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
         {
             return PhotonNetwork.Instantiate(prefab.name, position, rotation);
+        }
+
+        public override void DestroyObject(GameObject obj)
+        {
+            PhotonNetwork.Destroy(obj);
         }
     }
 }

@@ -1,20 +1,15 @@
 ﻿using UnityEngine;
 using System;
 
+
 namespace UniTank
 {
     public class Tank : MonoBehaviour
     {
         protected TankPlayer player = null;
-        protected bool localTank = true;
         public Color color;
         public Action OnExploded;
         public Action<float, float> OnHitPointChanged;
-
-        public bool IsLocal()
-        {
-            return this.localTank;
-        }
         public TankPlayer GetPlayer()
         {
             return this.player;
@@ -31,9 +26,8 @@ namespace UniTank
             return currentHitPoint;
         }
 
-        public virtual void Init(TankPlayer owner, bool isLocal = true)
+        public virtual void Init(TankPlayer owner)
         {
-            this.localTank = isLocal;
             this.player = owner;
             this.currentHitPoint = this.GetStartHitPoint();
             this.player.GetGame().arena.OnShellExploded -= this.ResponseToExplosion;

@@ -34,6 +34,7 @@ namespace UniTank
         public Config config = new Config();
         public Action<Tank> OnTankDeath;
         public Action<Tank> OnTankSpawn;
+        public Action<Tank> OnTankRemoved;
         public Action OnGameStart;
         public Action OnRoundStarting;
         public Action OnRoundStarted;
@@ -68,12 +69,13 @@ namespace UniTank
         {
             this.players.Add(player);
             this.playerScores.Add(player, score);
-            player.SetControledTank(tank.GetComponent<Tank>());
-
+            
             Transform tankSpawnPoint = this.arena.GetPlayerTankSpawnPoint(player);
             tank.gameObject.transform.position = tankSpawnPoint.position;
             tank.gameObject.transform.rotation = tankSpawnPoint.rotation;
             tank.color = this.tankColors[this.players.Count % this.tankColors.Length];
+
+            player.SetControledTank(tank.GetComponent<Tank>());
 
             if (this.OnTankSpawn != null)
             {
@@ -89,6 +91,7 @@ namespace UniTank
 
         public void StartGame()
         {
+            this.message.text = "Initializing...";
             this.SetState(State.Init);
             this.InitGame();
             if (this.OnGameStart != null)
@@ -225,8 +228,17 @@ namespace UniTank
 
         protected void SetState(State state)
         {
+            Debug.Log("Game State = " + state.ToString());
             this.state = state;
-            if (state == State.RoundStarting)
+            if(state == State.WaitPlayersJoin)
+            {
+                this.message.text = "Waiting for player to join";
+            }
+            else if (state == State.WaitPlayersReady)
+            {
+                this.message.text = "Waiting for player to ready up";
+            }
+            else if (state == State.RoundStarting)
             {
                 if (this.OnRoundStarting != null)
                 {
@@ -340,6 +352,11 @@ namespace UniTank
         public virtual GameObject Instantiate(GameObject prefab, Vector3 position, Quaternion rotation)
         {
             return GameObject.Instantiate(prefab, position, rotation);
+        }
+
+        public virtual void DestroyObject(GameObject obj)
+        {
+            Destroy(obj);
         }
     }
 }

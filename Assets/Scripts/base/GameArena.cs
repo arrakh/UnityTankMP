@@ -5,8 +5,6 @@ namespace UniTank
 {
     public class GameArena : MonoBehaviour
     {        
-        public Action<Tank, GameObject, float> OnShotTrigger;
-        public Action<TankShell> OnShellShot;
         public Action<TankShell, Collider> OnShellCollided;
         public Action<TankShell> OnShellExploded;
         public LayerMask tankLayerMask;
@@ -16,8 +14,6 @@ namespace UniTank
         public virtual void Init(GameManager game)
         {
             this.game = game;
-            this.game.OnTankSpawn -= this.processNewTank;
-            this.game.OnTankSpawn += this.processNewTank;
             this.gameCamera = this.gameObject.GetComponentInChildren<CameraController>();
         }
 
@@ -28,12 +24,6 @@ namespace UniTank
 
         public void Awake()
         {
-            this.OnShotTrigger -= this.TriggerShot;
-            this.OnShotTrigger += this.TriggerShot;
-
-            this.OnShellShot -= this.ShowShotExplosion;
-            this.OnShellShot += this.ShowShotExplosion;
-
             this.OnShellExploded -= this.ProcessShellExplosion;
             this.OnShellExploded += this.ProcessShellExplosion;
 
@@ -41,57 +31,32 @@ namespace UniTank
             this.OnShellCollided += this.ProcessShellCollision;
         }
 
-        protected void processNewTank(Tank tank)
-        {
-            this.gameCamera.UpdateTarget();
-        }
-
         public Transform GetTankSpawnPoint(Tank tank)
         {
             GameObject[] points = GameObject.FindGameObjectsWithTag("Respawn");
-            return points[(this.game.GetPlayerIndex(tank.GetPlayer()) + this.game.GetCurrentRound()) % points.Length].transform;
+            if(points.Length > 0)
+            {
+                int index = tank.GetPlayer().GetPlayerNumber() + this.game.GetCurrentRound();
+                return points[index % points.Length].transform;
+            }
+            else
+            {
+                return this.gameObject.transform;
+            }
         }
 
         public Transform GetPlayerTankSpawnPoint(TankPlayer player)
         {
             GameObject[] points = GameObject.FindGameObjectsWithTag("Respawn");
-            return points[(this.game.GetPlayerIndex(player) + this.game.GetCurrentRound()) % points.Length].transform;
-        }
-
-        protected void TriggerShot(Tank owner, GameObject shellPrefab, float force)
-        {
-            Transform aimTransform = owner.GetGunAimTransform();
-            if (aimTransform == null)
+            if(points.Length > 0)
             {
-                aimTransform = owner.transform;
+                int index = player.GetPlayerNumber() + this.game.GetCurrentRound();
+                return points[index % points.Length].transform;
             }
-            GameObject shellInstance = this.game.Instantiate(shellPrefab, aimTransform.position, aimTransform.rotation);
-            TankShell shell = shellInstance.GetComponent<TankShell>();
-            if (shell != null)
+            else
             {
-                shell.Init(owner, force * aimTransform.forward);
-                shellInstance.SetActive(true);
+                return this.gameObject.transform;
             }
-
-            if (this.OnShellShot != null)
-            {
-                this.OnShellShot(shellInstance.GetComponent<TankShell>());
-            }
-        }
-
-        protected void ShowShotExplosion(TankShell shell)
-        {
-            Transform explosionTransform = shell.GetShooter().GetGunAimTransform();
-            if (explosionTransform == null)
-            {
-                explosionTransform = shell.gameObject.transform;
-            }
-            GameObject shotExplosion = this.game.Instantiate(
-                shell.shotExplosionPrefab,
-                explosionTransform.position,
-                explosionTransform.rotation
-            );
-            shotExplosion.SetActive(true);
         }
 
         protected void ProcessShellExplosion(TankShell shell)
@@ -127,14 +92,6 @@ namespace UniTank
                     );
                 }
             }
-
-            if (this.OnShellExploded != null)
-            {
-                this.OnShellExploded(shell);
-            }
-
-            shell.gameObject.SetActive(false);
-            Destroy(shell.gameObject);
         }
     }
 }

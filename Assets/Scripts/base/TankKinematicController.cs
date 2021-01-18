@@ -22,10 +22,6 @@ namespace UniTank
         {
             base.Init(tank);
             this.body = this.gameObject.GetComponent<Rigidbody>();
-        }
-
-        protected void Awake()
-        {            
             this.driveController = this.tank.gameObject.GetComponent<TankDriveController>();
         }
 
