@@ -17,8 +17,13 @@ namespace UniTank
         }
 
         public bool IsLocal()
-        {
+        {            
             return this.netPlayer.IsLocal;
+        }
+
+        public bool IsMaster()
+        {
+            return this.netPlayer.IsMasterClient;
         }
 
         public string GetUserId()

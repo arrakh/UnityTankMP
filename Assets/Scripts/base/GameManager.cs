@@ -114,7 +114,7 @@ namespace UniTank
             }
         }
 
-        protected void UpdateStateWaitPlayerReady()
+        protected virtual void UpdateStateWaitPlayerReady()
         {
             bool allPlayerReady = true;
             foreach (TankPlayer player in players)
@@ -226,59 +226,62 @@ namespace UniTank
             }
         }
 
-        protected void SetState(State state)
+        protected virtual void SetState(State state)
         {
-            Debug.Log("Game State = " + state.ToString());
-            this.state = state;
-            if(state == State.WaitPlayersJoin)
+            if(this.state != state)
             {
-                this.message.text = "Waiting for player to join";
-            }
-            else if (state == State.WaitPlayersReady)
-            {
-                this.message.text = "Waiting for player to ready up";
-            }
-            else if (state == State.RoundStarting)
-            {
-                if (this.OnRoundStarting != null)
+                Debug.Log("Game State = " + state.ToString());
+                this.state = state;
+                if (state == State.WaitPlayersJoin)
                 {
-                    this.OnRoundStarting();
+                    this.message.text = "Waiting for player to join";
                 }
-                this.stateCountDown = 5.0f;
-            }
-            else if (state == State.RoundPlaying)
-            {
-                foreach (TankPlayer player in players)
+                else if (state == State.WaitPlayersReady)
                 {
-                    player.StartRound(this.GetCurrentRound());
+                    this.message.text = "Waiting for player to ready up";
                 }
-                if (this.OnRoundStarted != null)
+                else if (state == State.RoundStarting)
                 {
-                    this.OnRoundStarted();
+                    if (this.OnRoundStarting != null)
+                    {
+                        this.OnRoundStarting();
+                    }
+                    this.stateCountDown = 5.0f;
                 }
-            }
-            else if (state == State.RoundEnding)
-            {
-                foreach (TankPlayer player in players)
+                else if (state == State.RoundPlaying)
                 {
-                    player.EndRound(this.GetCurrentRound());
+                    foreach (TankPlayer player in players)
+                    {
+                        player.StartRound(this.GetCurrentRound());
+                    }
+                    if (this.OnRoundStarted != null)
+                    {
+                        this.OnRoundStarted();
+                    }
                 }
-                this.stateCountDown = 5.0f;
-                if (this.OnRoundEnded != null)
+                else if (state == State.RoundEnding)
                 {
-                    this.OnRoundEnded();
+                    foreach (TankPlayer player in players)
+                    {
+                        player.EndRound(this.GetCurrentRound());
+                    }
+                    this.stateCountDown = 5.0f;
+                    if (this.OnRoundEnded != null)
+                    {
+                        this.OnRoundEnded();
+                    }
                 }
-            }
-            else if (state == State.GameEnding)
-            {
-                foreach (TankPlayer player in players)
+                else if (state == State.GameEnding)
                 {
-                    player.EndRound(this.GetCurrentRound());
-                }
-                this.stateCountDown = 5.0f;
-                if (this.OnGameEnd != null)
-                {
-                    this.OnGameEnd();
+                    foreach (TankPlayer player in players)
+                    {
+                        player.EndRound(this.GetCurrentRound());
+                    }
+                    this.stateCountDown = 5.0f;
+                    if (this.OnGameEnd != null)
+                    {
+                        this.OnGameEnd();
+                    }
                 }
             }
         }
