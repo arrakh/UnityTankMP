@@ -12,8 +12,9 @@ namespace UniTank
         public Text uiPlayerLabel;
         public GameObject tankExplosionPrefab;
 
-        protected void Start()
+        public override void Init(Tank tank)
         {
+            base.Init(tank);
             this.uiPlayerLabel.text = this.tank.GetPlayer().GetName();
             this.uiHealthSlider.value = 100.0f * this.tank.GetCurrentHitPoint() / this.GetGame().config.startHitPoint;
             this.SetColor(this.tank.color);

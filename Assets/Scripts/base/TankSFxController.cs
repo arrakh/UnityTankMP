@@ -10,13 +10,13 @@ namespace UniTank
         public AudioSource audioGun;
         public AudioClip clipGunLoaded;
 
-        private Vector3 lastPosition;
+        private Vector3 lastPosition = Vector3.zero;
         private float idlingTargetVolume;
         private float runnningTargetVolume;
         private float runningTargetPitch;
-
-        protected void Start()
+        public override void Init(Tank tank)
         {
+            base.Init(tank);
             lastPosition = this.tank.transform.position;
             TankGunController gunController = this.gameObject.GetComponent<TankGunController>();
             if (gunController)

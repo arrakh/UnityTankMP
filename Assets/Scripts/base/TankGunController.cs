@@ -35,8 +35,9 @@ namespace UniTank
         protected bool controlEnabled = false;
         protected GunState gunState = GunState.Ready;
 
-        protected void Start()
+        public override void Init(Tank tank)
         {
+            base.Init(tank);
             this.GetGame().OnRoundStarted -= this.EnableControl;
             this.GetGame().OnRoundStarted += this.EnableControl;
 
@@ -124,7 +125,7 @@ namespace UniTank
 
         protected void OnInputStartAim()
         {
-            if(this.controlEnabled)
+            if (this.controlEnabled)
             {
                 if (this.gunState == GunState.Ready)
                 {
@@ -137,7 +138,7 @@ namespace UniTank
 
         protected void OnInputFire()
         {
-            if(this.controlEnabled)
+            if (this.controlEnabled)
             {
                 if (this.gunState == GunState.Aiming)
                 {
@@ -157,7 +158,26 @@ namespace UniTank
         {
             if (this.gunState == GunState.Trigger || this.gunState == GunState.Aiming)
             {
-                this.GetArena().OnShotTrigger(this.tank, this.shellPrefab, this.currentShotForce);
+                GameObject shellInstance = this.GetGame().Instantiate(
+                    this.shellPrefab,
+                    aimTransform.position,
+                    aimTransform.rotation
+                );
+                TankShellController shellController = shellInstance.GetComponent<TankShellController>();
+                if (shellController != null)
+                {
+                    shellController.Init(this.tank);
+                    shellController.SetVelocity(this.currentShotForce * aimTransform.forward);
+                    shellInstance.SetActive(true);
+
+                    GameObject shotExplosion = this.GetGame().Instantiate(
+                        shellController.GetShell().shotExplosionPrefab,
+                        aimTransform.position,
+                        aimTransform.rotation
+                    );
+                    shotExplosion.SetActive(true);
+                }
+
                 this.lastShotTime = Time.time;
 
                 float elapsedSinceTrigger = Time.time - this.lastTriggerTime;

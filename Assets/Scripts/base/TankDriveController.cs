@@ -13,8 +13,9 @@ namespace UniTank
         protected TankControlInput input = null;
         protected bool driveEnabled = false;
 
-        protected void Start()
+        public override void Init(Tank tank)
         {
+            base.Init(tank);
             this.GetGame().OnRoundStarted -= this.EnableDrive;
             this.GetGame().OnRoundStarted += this.EnableDrive;
 
@@ -36,7 +37,7 @@ namespace UniTank
 
         protected void FixedUpdate()
         {
-            if(this.driveEnabled)
+            if (this.driveEnabled)
             {
                 float accelerationFactor = Time.fixedDeltaTime * this.moveControlAcceleration;
                 float turningFactor = Time.fixedDeltaTime * this.turnControlAcceleration;

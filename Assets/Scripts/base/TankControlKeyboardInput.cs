@@ -19,12 +19,12 @@ namespace UniTank
             if (playerInput != null)
             {
                 playerInput.actionEvents[0].AddListener(this.performInputForward);
-                
+
                 InputActionMap inputMap = playerInput.actions.FindActionMap("TankControl");
                 if (inputMap != null)
                 {
                     this.inputActionForward = inputMap.FindAction(this.GetTank().GetPlayer().GetName() + "/Forward");
-                    if(this.inputActionForward == null)
+                    if (this.inputActionForward == null)
                     {
                         this.inputActionForward = inputMap.FindAction("Forward");
                     }

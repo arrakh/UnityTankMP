@@ -58,22 +58,22 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/CameraController.cs" />
     <Compile Include="Assets/Scripts/UI/UIDirectionControl.cs" />
-    <Compile Include="Assets/Scripts/impl/TankKinematicController.cs" />
-    <Compile Include="Assets/Scripts/Explosion.cs" />
-    <Compile Include="Assets/Scripts/TankShell.cs" />
+    <Compile Include="Assets/Scripts/base/TankKinematicController.cs" />
+    <Compile Include="Assets/Scripts/base/Explosion.cs" />
+    <Compile Include="Assets/Scripts/base/TankShell.cs" />
     <Compile Include="Assets/Scripts/UI/UIScreenPos.cs" />
-    <Compile Include="Assets/Scripts/impl/TankGunController.cs" />
+    <Compile Include="Assets/Scripts/base/TankGunController.cs" />
     <Compile Include="Assets/Scripts/base/TankController.cs" />
-    <Compile Include="Assets/Scripts/Tank.cs" />
+    <Compile Include="Assets/Scripts/base/Tank.cs" />
     <Compile Include="Assets/Scripts/impl/LocalTankPlayer.cs" />
-    <Compile Include="Assets/Scripts/impl/TankVFxController.cs" />
-    <Compile Include="Assets/Scripts/impl/TankControlKeyboardInput.cs" />
+    <Compile Include="Assets/Scripts/base/TankVFxController.cs" />
+    <Compile Include="Assets/Scripts/base/TankControlKeyboardInput.cs" />
     <Compile Include="Assets/Scripts/base/TankControlInput.cs" />
     <Compile Include="Assets/Scripts/base/TankPlayer.cs" />
-    <Compile Include="Assets/Scripts/TankShellController.cs" />
-    <Compile Include="Assets/Scripts/impl/TankSFxController.cs" />
-    <Compile Include="Assets/Scripts/impl/TankDriveController.cs" />
-    <Compile Include="Assets/Scripts/GameArena.cs" />
+    <Compile Include="Assets/Scripts/base/TankShellController.cs" />
+    <Compile Include="Assets/Scripts/base/TankSFxController.cs" />
+    <Compile Include="Assets/Scripts/base/TankDriveController.cs" />
+    <Compile Include="Assets/Scripts/base/GameArena.cs" />
     <Compile Include="Assets/Scripts/base/GameManager.cs" />
     <Compile Include="Assets/Scripts/impl/LocalGameManager.cs" />
   </ItemGroup>

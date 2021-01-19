@@ -13,21 +13,26 @@ namespace UniTank
         {
             this.game = game;
         }
-        
+
         public GameManager GetGame()
         {
             return this.game;
-        }        
-        
+        }
+
         public State GetState()
         {
             return this.state;
         }
 
+        public virtual int GetPlayerNumber()
+        {
+            return this.GetGame().GetPlayerIndex(this);
+        }
+
         protected virtual bool SetState(State state)
         {
             this.state = state;
-            if(this.state == State.Disabled)
+            if (this.state == State.Disabled)
             {
                 this.tank.gameObject.SetActive(false);
             }
@@ -35,7 +40,7 @@ namespace UniTank
             {
                 this.tank.gameObject.SetActive(true);
             }
-            else if(this.state == State.Playing)
+            else if (this.state == State.Playing)
             {
                 this.tank.gameObject.SetActive(true);
             }
@@ -47,7 +52,7 @@ namespace UniTank
             this.tank = tank;
             tank.Init(this);
         }
-        
+
         public virtual Tank GetTank()
         {
             return this.tank;
@@ -55,10 +60,10 @@ namespace UniTank
 
         public virtual void PrepareRound(int round)
         {
-            if(this.tank)
+            if (this.tank)
             {
                 this.SetState(State.Init);
-                this.tank.Reset();                
+                this.tank.Reset();
                 this.SetState(State.Ready);
             }
         }

@@ -10,22 +10,10 @@ namespace UniTank
         public float lookSpeed = 1.5f;
         public float viewMargin = 10.0f;
         protected Vector3 targetPos = Vector3.zero;
-        protected List<Transform> targets = new List<Transform>();
         protected Vector3 currentCameraVelocity = Vector3.zero;
         protected Vector3 initialPos;
+        protected GameManager game;
 
-        public void UpdateTarget()
-        {
-            Tank[] tanks = FindObjectsOfType<Tank>(true);
-
-            foreach (Tank tank in tanks)
-            {
-                if(!this.targets.Contains(tank.transform))
-                {
-                    this.targets.Add(tank.transform);
-                }                
-            }
-        }
 
         public void Reset()
         {
@@ -35,6 +23,7 @@ namespace UniTank
         protected void Awake()
         {
             this.initialPos = this.transform.position;
+            this.game = GameObject.FindObjectOfType<GameManager>();
         }
 
         public void Start()
@@ -44,16 +33,18 @@ namespace UniTank
 
         private void Update()
         {
-            if (this.targets.Count > 0)
+            if (this.game.GetPlayerCount() > 0)
             {
+                GameObject firstTarget = this.game.GetPlayerByIndex(0).GetTank().gameObject;
                 float tanFov = Mathf.Tan(Mathf.Deg2Rad * GetComponent<Camera>().fieldOfView / 2.0f);
-                Vector3 minPos = targets[0].position;
-                Vector3 maxPos = targets[0].position;
+                Vector3 minPos = firstTarget.transform.position;
+                Vector3 maxPos = firstTarget.transform.position;
 
-                foreach (Transform target in this.targets)
+                for (int i = 0; i < this.game.GetPlayerCount(); i++)
                 {
-                    maxPos = Vector3.Max(maxPos, target.position);
-                    minPos = Vector3.Min(minPos, target.position);
+                    GameObject playerTank = this.game.GetPlayerByIndex(i).GetTank().gameObject;
+                    maxPos = Vector3.Max(maxPos, playerTank.transform.position);
+                    minPos = Vector3.Min(minPos, playerTank.transform.position);
                 }
                 maxPos += Vector3.one * viewMargin;
                 minPos -= Vector3.one * viewMargin;

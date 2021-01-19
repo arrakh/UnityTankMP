@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
+
 namespace UniTank
 {
     public class Tank : MonoBehaviour
@@ -42,7 +43,7 @@ namespace UniTank
         {
             this.SetHitPoint(this.GetStartHitPoint());
             TankController[] controllers = this.gameObject.GetComponents<TankController>();
-            foreach(TankController controller in controllers)
+            foreach (TankController controller in controllers)
             {
                 controller.Reset();
             }
@@ -59,7 +60,7 @@ namespace UniTank
 
         public void Explode()
         {
-            if(this.OnExploded != null)
+            if (this.OnExploded != null)
             {
                 this.OnExploded();
             }
@@ -68,7 +69,7 @@ namespace UniTank
         public virtual void SetHitPoint(float hp)
         {
             this.currentHitPoint = Mathf.Clamp(hp, 0.0f, this.GetStartHitPoint());
-            if(this.OnHitPointChanged != null)
+            if (this.OnHitPointChanged != null)
             {
                 this.OnHitPointChanged(this.currentHitPoint, this.GetStartHitPoint());
             }
@@ -77,7 +78,7 @@ namespace UniTank
         public Transform GetGunAimTransform()
         {
             TankGunController gunController = this.GetComponent<TankGunController>();
-            if(gunController)
+            if (gunController)
             {
                 return gunController.aimTransform;
             }
