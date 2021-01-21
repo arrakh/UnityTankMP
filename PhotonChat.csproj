@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DAF7AC27-BFBF-A7CB-DE8C-243461466CF3}</ProjectGuid>
+    <ProjectGuid>{FA78C0FC-8C1B-CDB6-945F-121DE03B42E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <AssemblyName>PhotonChat</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -48,7 +48,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.5</UnityProjectGeneratorVersion>
-    <UnityProjectType>Editor:5</UnityProjectType>
+    <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.2.1f1</UnityVersion>
   </PropertyGroup>
@@ -56,12 +56,23 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Photon\Simple\Components\Editor\SyncTransformEditor.cs" />
-    <Compile Include="Assets\Photon\Simple\Components\Editor\SyncAnimatorEditor.cs" />
-    <Compile Include="Assets\Photon\Simple\Utilities\GUITools\Editor\GUIColorBoxes.cs" />
-    <Compile Include="Assets\Photon\Simple\Components\Editor\SyncVitalsEditor.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChannelWellKnownProperties.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatEventCode.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatClient.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatOperationCode.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatAppSettings.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatChannel.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatParameterCode.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatPeer.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatDisconnectCause.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatUserStatus.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChatState.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\ChannelCreationOptions.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Code\IChatClientListener.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Photon\PhotonChat\Code\changes-chat.txt" />
+     <None Include="Assets\Photon\PhotonChat\Code\PhotonChat.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -659,73 +670,14 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.1f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{6FF42444-41E6-4F02-D481-828DD65BC1D0}</Project>
-      <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{DB1F6056-1356-E48C-90A8-54BDB4114B40}</Project>
-      <Name>PhotonUnityNetworking</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonChat.csproj">
-      <Project>{FA78C0FC-8C1B-CDB6-945F-121DE03B42E6}</Project>
-      <Name>PhotonChat</Name>
-    </ProjectReference>
-    <ProjectReference Include="BitpackersASMDEF.csproj">
-      <Project>{4B107AC7-06E6-2167-89B0-93C92A98CD97}</Project>
-      <Name>BitpackersASMDEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{75DAA265-6BB7-40BB-5096-616171A045F8}</Project>
-      <Name>PhotonUnityNetworking.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
-      <Project>{E61CD5BB-B3DE-38D5-2199-E49A10AD11A1}</Project>
-      <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="HalfFloatASMDEF.csproj">
-      <Project>{ACBE8ECA-623B-5E46-FE02-F061B296A140}</Project>
-      <Name>HalfFloatASMDEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{1C6728BD-AA41-14DE-1450-32307B3DA8A9}</Project>
-      <Name>PhotonRealtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{AD3DD2D0-F45A-4A11-5A12-129566186CC9}</Project>
-      <Name>PhotonUnityNetworking.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="EmoCompressUtilsASMDEF.csproj">
-      <Project>{EFE9C36F-745A-4CA8-8DA2-2CC892ACAEA5}</Project>
-      <Name>EmoCompressUtilsASMDEF</Name>
-    </ProjectReference>
-    <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
-      <Project>{8ADA909E-0F12-B921-6947-25E57D5AD60D}</Project>
-      <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
