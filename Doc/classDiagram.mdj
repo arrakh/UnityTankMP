@@ -16412,9 +16412,9 @@
 										"$ref": "AAAAAAF3IYZAk5mkAqc="
 									},
 									"font": "Arial;13;0",
-									"left": 759.94091796875,
+									"left": 757.78271484375,
 									"top": 373,
-									"width": 71.814453125,
+									"width": 63.45458984375,
 									"height": 13,
 									"text": "Player State"
 								},
@@ -16427,7 +16427,7 @@
 									"font": "Arial;13;1",
 									"left": 733,
 									"top": 373,
-									"width": 21.94091796875,
+									"width": 19.78271484375,
 									"height": 13,
 									"text": "stm"
 								}
@@ -16461,9 +16461,9 @@
 										"$ref": "AAAAAAF3IYbNgpmwvig="
 									},
 									"font": "Arial;13;0",
-									"left": 367.9599609375,
+									"left": 366.5,
 									"top": 237,
-									"width": 70.3671875,
+									"width": 61.28369140625,
 									"height": 13,
 									"text": "Game State"
 								},
@@ -16476,7 +16476,7 @@
 									"font": "Arial;13;1",
 									"left": 341,
 									"top": 237,
-									"width": 21.9599609375,
+									"width": 20.5,
 									"height": 13,
 									"text": "pkg"
 								}
@@ -23925,7 +23925,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF3IZiVhJqrWvg="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -23933,7 +23934,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF3IZiVhJqrWvg="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -23941,7 +23943,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF3IZiVhJqrWvg="
 					},
-					"name": "Role3"
+					"name": "Role3",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -23949,7 +23952,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF3IZiVhJqrWvg="
 					},
-					"name": "Role4"
+					"name": "Role4",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -23957,7 +23961,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF3IZiVhJqrWvg="
 					},
-					"name": "Role5"
+					"name": "Role5",
+					"type": ""
 				}
 			]
 		}
