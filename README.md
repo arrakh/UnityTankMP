@@ -1,7 +1,7 @@
 # UnityTankMP
 Modify Unity Learn Demo Project Tank to include Multiplayer mode
 
-binary download untuk tiap platform dapat dilihat di [Releases Page](https://github.com/uraymeiviar/UnityTankMP/releases)
+binary download untuk tiap platform (windows, Mac, Linux) dapat dilihat di [Releases Page](https://github.com/uraymeiviar/UnityTankMP/releases)
 
 tutorial bisa dilihat di [Wiki](https://github.com/uraymeiviar/UnityTankMP/wiki) pages
 
