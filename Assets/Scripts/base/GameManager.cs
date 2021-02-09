@@ -110,7 +110,7 @@ namespace UniTank
         {
             if (this.players.Count >= this.config.maxPlayer)
             {
-                this.StarGameRound(1);
+                this.StartGameRound(1);
             }
         }
 
@@ -184,7 +184,7 @@ namespace UniTank
             this.stateCountDown -= Time.deltaTime;
             if (this.stateCountDown <= 0.0f)
             {
-                this.StarGameRound(this.GetCurrentRound() + 1);
+                this.StartGameRound(this.GetCurrentRound() + 1);
             }
         }
 
@@ -286,7 +286,7 @@ namespace UniTank
             }
         }
 
-        protected void StarGameRound(int round)
+        protected void StartGameRound(int round)
         {
             this.gameRound = round;
             this.arena.Reset();
